@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { CheckboxField, RadioGroupField, SelectField, TextField, TextareaField } from "./fields";
 
@@ -295,9 +295,9 @@ export function EnquiryForm({ variant }: { variant: FormVariant }) {
           />
         ))}
         <p className="text-faint text-[13px] leading-snug">
-          <a href={paths.privacy} className="text-brand font-semibold">
+          <Link to={paths.privacy} className="text-brand font-semibold">
             {t.form.privacyLink}
-          </a>
+          </Link>
         </p>
       </fieldset>
 
