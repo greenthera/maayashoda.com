@@ -55,6 +55,11 @@ export function Header() {
   const linkClass = (isActive: boolean) =>
     `rounded-lg px-3.5 py-2 text-[14.5px] font-medium whitespace-nowrap ${isActive ? "text-brand" : "text-ink hover:text-brand"}`;
 
+  function closeMobileMenu() {
+    setMenuOpen(false);
+    setLangOpen(false);
+  }
+
   return (
     <header className="bg-paper/92 border-border sticky top-0 z-50 border-b backdrop-blur-md">
       <div className="mx-auto flex h-[64px] max-w-[1280px] items-center gap-2.5 px-4 sm:h-[72px] sm:gap-5 sm:px-5">
@@ -145,6 +150,7 @@ export function Header() {
             <NavLink
               key={item.to}
               to={item.to}
+              onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `border-border border-b py-3.5 text-base font-medium ${isActive ? "text-brand" : "text-ink"}`
               }
@@ -152,7 +158,11 @@ export function Header() {
               {item.label}
             </NavLink>
           ))}
-          <Link to={paths.donor} className="bg-brand text-paper mt-2.5 grid h-[50px] place-items-center rounded-xl text-[15px] font-semibold">
+          <Link
+            to={paths.donor}
+            onClick={closeMobileMenu}
+            className="bg-brand text-paper mt-2.5 grid h-[50px] place-items-center rounded-xl text-[15px] font-semibold"
+          >
             {t.cta.donor}
           </Link>
         </nav>

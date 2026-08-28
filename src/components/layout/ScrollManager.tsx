@@ -13,7 +13,7 @@ const HEADER_OFFSET = 88;
  *   the sticky header doesn't cover it.
  */
 export function ScrollManager() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
     if (hash) {
@@ -25,7 +25,7 @@ export function ScrollManager() {
       }
     }
     window.scrollTo(0, 0);
-  }, [pathname, hash]);
+  }, [pathname, hash, key]);
 
   return null;
 }
