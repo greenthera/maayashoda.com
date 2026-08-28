@@ -52,13 +52,13 @@ export default function HomePage() {
             </g>
           </svg>
         </div>
-        <div className="relative mx-auto flex max-w-[1000px] flex-col items-center gap-6 px-5 pb-10 pt-20 text-center">
+        <div className="relative mx-auto flex max-w-[1000px] flex-col items-center gap-5 px-4 pb-9 pt-14 text-center sm:gap-6 sm:px-5 sm:pb-10 sm:pt-20">
           <span className="bg-brand-tint text-brand-strong inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.06em]">
             {t.grant.badge}
           </span>
           <h1 className="text-ink max-w-[900px] text-[clamp(2.5rem,6vw,4.6rem)] font-bold leading-[1.03] tracking-[-0.04em]">{t.home.h1}</h1>
-          <p className="text-muted max-w-[620px] text-[19px] leading-relaxed">{t.home.heroLead}</p>
-          <div className="mt-1 flex flex-wrap justify-center gap-3">
+          <p className="text-muted max-w-[620px] text-base leading-relaxed sm:text-[19px]">{t.home.heroLead}</p>
+          <div className="mt-1 flex w-full flex-col justify-center gap-3 min-[420px]:w-auto min-[420px]:flex-row min-[420px]:flex-wrap">
             <Button to={paths.donor}>{t.cta.donor}</Button>
             <Button to={paths.about} variant="outline">
               {t.cta.learnProject}
@@ -75,7 +75,7 @@ export default function HomePage() {
             </span>
           </div>
         </div>
-        <div className="mx-auto max-w-[1280px] px-5 pb-14 pt-6">
+        <div className="mx-auto max-w-[1280px] px-4 pb-10 pt-4 sm:px-5 sm:pb-14 sm:pt-6">
           <Marquee>
             {partnerNames.map((name, i) => (
               <div key={i} className="flex flex-none items-center gap-2 opacity-70">
@@ -92,7 +92,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-4.5">
             <Eyebrow>{t.home.whyEyebrow}</Eyebrow>
             <h2 className="text-ink max-w-[460px] text-[clamp(1.9rem,3.6vw,3rem)] font-bold leading-[1.12] tracking-[-0.03em]">{t.home.whyTitle}</h2>
-            <blockquote className="bg-surface-2 card-shadow mt-3 max-w-[420px] rounded-[20px] px-6 py-5.5 text-[18px] font-medium leading-snug text-ink">
+            <blockquote className="bg-surface-2 card-shadow mt-3 max-w-[420px] rounded-[18px] px-4.5 py-4.5 text-base font-medium leading-snug text-ink sm:rounded-[20px] sm:px-6 sm:py-5.5 sm:text-[18px]">
               “{t.home.whyQuote}”
             </blockquote>
           </div>
@@ -119,8 +119,8 @@ export default function HomePage() {
 
       <Section>
         <div className="grid grid-cols-1 items-center gap-11 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="border-border bg-surface-1 min-h-[360px] overflow-hidden rounded-3xl border">
-            <ImageSlot label="Milk Bank Van photograph" className="min-h-[360px]" />
+          <div className="border-border bg-surface-1 min-h-[260px] overflow-hidden rounded-[22px] border sm:min-h-[360px] sm:rounded-3xl">
+            <ImageSlot label="Milk Bank Van photograph" className="min-h-[260px] sm:min-h-[360px]" />
           </div>
           <div className="flex max-w-[560px] flex-col gap-5.5">
             <Eyebrow>{t.home.vanEyebrow}</Eyebrow>
@@ -270,7 +270,7 @@ export default function HomePage() {
             return (
               <li
                 key={c.t}
-                className={`flex flex-col gap-3 rounded-[20px] border p-8 ${
+                className={`flex flex-col gap-3 rounded-[18px] border p-5 sm:rounded-[20px] sm:p-8 ${
                   meta.accent ? "bg-brand-tint border-brand-tint-border" : "bg-paper border-border"
                 }`}
               >

@@ -58,11 +58,11 @@ export function Section({
       ref={ref}
       id={id}
       style={decorStyle(effectiveDecor, isInk)}
-      className={`relative scroll-mt-24 transition-all duration-700 ease-out ${
+      className={`relative scroll-mt-20 transition-all duration-700 ease-out sm:scroll-mt-24 ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      } ${toneClasses[tone]} ${borderClasses} ${overlap ? "-mt-10 rounded-t-[40px]" : ""} ${className}`}
+      } ${toneClasses[tone]} ${borderClasses} ${overlap ? "-mt-6 rounded-t-[26px] sm:-mt-10 sm:rounded-t-[40px]" : ""} ${className}`}
     >
-      <div className={`mx-auto max-w-[1280px] px-5 py-16 md:py-24 ${containerClassName}`}>{children}</div>
+      <div className={`mx-auto max-w-[1280px] px-4 py-12 sm:px-5 md:py-24 ${containerClassName}`}>{children}</div>
     </section>
   );
 }

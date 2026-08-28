@@ -1,7 +1,7 @@
 import type { ChangeEvent, ReactNode } from "react";
 
 const inputBase =
-  "w-full min-h-[52px] px-4 bg-paper border rounded-xl text-[15.5px] focus:outline-none focus:ring-[3px] focus:ring-brand/[.18] focus:border-brand";
+  "w-full min-w-0 min-h-[50px] px-3.5 sm:min-h-[52px] sm:px-4 bg-paper border rounded-xl text-[16px] sm:text-[15.5px] focus:outline-none focus:ring-[3px] focus:ring-brand/[.18] focus:border-brand";
 
 function borderClass(invalid: boolean) {
   return invalid ? "border-brand" : "border-border-strong";
@@ -23,9 +23,9 @@ function FieldShell({
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-ink flex items-baseline gap-1.5 text-[14.5px] font-semibold">
-        <span>{label}</span>
+    <div className="min-w-0 flex flex-col gap-1.5">
+      <label htmlFor={id} className="text-ink flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 text-[14.5px] font-semibold leading-snug">
+        <span className="min-w-0">{label}</span>
         <span className={required ? "text-brand text-sm font-semibold" : "text-faint text-[11.5px] font-medium"}>
           {required ? "*" : "Optional"}
         </span>
@@ -33,8 +33,8 @@ function FieldShell({
       {children}
       {helper && !error ? <p className="text-faint text-[13px] leading-snug">{helper}</p> : null}
       {error ? (
-        <p role="alert" className="text-brand-strong flex items-center gap-1.5 text-[13.5px] font-medium">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" aria-hidden="true">
+        <p role="alert" className="text-brand-strong flex items-start gap-1.5 text-[13.5px] font-medium leading-snug">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" className="mt-0.5 flex-none" aria-hidden="true">
             <circle cx="12" cy="12" r="9" />
             <path d="M12 8v4.5M12 16h.01" />
           </svg>
@@ -147,18 +147,18 @@ export function RadioGroupField({
 }) {
   return (
     <FieldShell id={id} label={label}>
-      <div role="radiogroup" aria-labelledby={id} className="flex flex-wrap gap-2.5">
+      <div role="radiogroup" aria-labelledby={id} className="grid grid-cols-1 gap-2.5 min-[420px]:flex min-[420px]:flex-wrap">
         {options.map((opt) => {
           const checked = value === opt;
           return (
             <label
               key={opt}
-              className={`inline-flex items-center gap-2 rounded-xl border px-4 py-3 text-[15px] cursor-pointer ${
+              className={`inline-flex min-w-0 items-center gap-2 rounded-xl border px-3.5 py-3 text-[15px] cursor-pointer sm:px-4 ${
                 checked ? "border-brand bg-brand-tint" : "border-border-strong bg-paper"
               }`}
             >
               <input type="radio" name={id} value={opt} checked={checked} onChange={onChange} className="accent-brand h-[17px] w-[17px]" />
-              <span>{opt}</span>
+              <span className="min-w-0">{opt}</span>
             </label>
           );
         })}

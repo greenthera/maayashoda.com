@@ -28,11 +28,11 @@ export default function ContactPage() {
       <PageHead title={t.contact.title} />
 
       <section className="bg-surface-1 border-border animate-fade-up border-b" style={ringStyle()}>
-        <div className="mx-auto max-w-[1280px] px-5 pb-18 pt-18">
+        <div className="mx-auto max-w-[1280px] px-4 pb-14 pt-12 sm:px-5 sm:pb-18 sm:pt-18">
           <div className="flex max-w-[720px] flex-col gap-5">
             <Eyebrow>{t.contact.eyebrow}</Eyebrow>
             <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">{t.contact.h1}</h1>
-            <p className="text-muted max-w-[620px] text-[18.5px] leading-relaxed">{t.contact.lead}</p>
+            <p className="text-muted max-w-[620px] text-base leading-relaxed sm:text-[18.5px]">{t.contact.lead}</p>
           </div>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function ContactPage() {
             return (
               <li
                 key={r.t}
-                className={`flex flex-col gap-2.5 rounded-[20px] p-6.5 ${accent ? "bg-brand-tint border border-brand-tint-border" : "border-border card-shadow border bg-paper"}`}
+                className={`flex flex-col gap-2.5 rounded-[18px] p-5 sm:rounded-[20px] sm:p-6.5 ${accent ? "bg-brand-tint border border-brand-tint-border" : "border-border card-shadow border bg-paper"}`}
               >
                 <span className="text-ink text-[17px] font-semibold">{r.t}</span>
                 <span className={`text-[14.5px] leading-[1.65] ${accent ? "text-brand-soft" : "text-muted"}`}>{r.d}</span>
@@ -74,22 +74,22 @@ export default function ContactPage() {
               <h2 className="text-ink text-xl font-semibold tracking-[-0.02em]">{t.contact.optionsTitle}</h2>
               <ul className="flex flex-col">
                 {t.contact.options.map((o) => (
-                  <li key={o.t} className="border-border flex items-center justify-between gap-5 border-b py-4">
+                  <li key={o.t} className="border-border flex flex-col items-start gap-1.5 border-b py-4 min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between min-[480px]:gap-5">
                     <span className="text-ink text-[15px] font-semibold">{o.t}</span>
-                    <span className="text-muted text-right text-[15px]">{o.d}</span>
+                    <span className="text-muted text-left text-[15px] min-[480px]:text-right">{o.d}</span>
                   </li>
                 ))}
               </ul>
               <p className="text-faint text-[13px] leading-relaxed">{t.contact.optionsNote}</p>
             </div>
 
-            <div className="card-shadow border-border flex flex-col gap-2 rounded-[20px] border bg-paper p-6.5">
+            <div className="card-shadow border-border flex flex-col gap-2 rounded-[18px] border bg-paper p-5 sm:rounded-[20px] sm:p-6.5">
               <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.contact.primaryContactLabel}</span>
               <span className="text-ink text-[21px] font-bold tracking-[-0.02em]">{t.contact.primaryContactName}</span>
               <span className="text-faint text-[13.5px] leading-relaxed">{t.contact.primaryContactNote}</span>
             </div>
 
-            <div className="card-shadow bg-surface-2 flex flex-col gap-4 rounded-[20px] p-6.5">
+            <div className="card-shadow bg-surface-2 flex flex-col gap-4 rounded-[18px] p-5 sm:rounded-[20px] sm:p-6.5">
               <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.contact.projectTitle}</span>
               <div className="flex flex-col gap-0.5">
                 <span className="text-ink text-[17px] font-semibold">Maa Yashoda</span>
@@ -107,7 +107,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div id="enquiry" className="card-shadow border-border flex flex-col gap-6.5 rounded-3xl border bg-paper p-7.5">
+          <div id="enquiry" className="card-shadow border-border flex flex-col gap-5 rounded-[22px] border bg-paper p-5 sm:gap-6.5 sm:rounded-3xl sm:p-7.5">
             <div className="flex flex-col gap-1.5">
               <Eyebrow>{t.contact.formEyebrow}</Eyebrow>
               <h2 className="text-ink text-[22px] font-bold tracking-[-0.02em]">{t.contact.formTitle}</h2>
@@ -119,14 +119,14 @@ export default function ContactPage() {
 
       <Section>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          <div className="bg-surface-2 card-shadow flex flex-col gap-3.5 rounded-[22px] p-7.5">
+          <div className="bg-surface-2 card-shadow flex flex-col gap-3.5 rounded-[20px] p-5 sm:rounded-[22px] sm:p-7.5">
             <h2 className="text-ink text-xl font-semibold tracking-[-0.02em]">{t.partners.joinTitle}</h2>
             <p className="text-muted text-[15.5px] leading-[1.7]">{t.partners.joinBody}</p>
             <Button to={paths.support} variant="text" arrow className="mt-1 self-start">
               {t.cta.explorePartnership}
             </Button>
           </div>
-          <div className="bg-surface-2 card-shadow flex flex-col gap-3.5 rounded-[22px] p-7.5">
+          <div className="bg-surface-2 card-shadow flex flex-col gap-3.5 rounded-[20px] p-5 sm:rounded-[22px] sm:p-7.5">
             <h2 className="text-ink text-xl font-semibold tracking-[-0.02em]">{t.contact.faqTitle}</h2>
             <p className="text-muted text-[15.5px] leading-[1.7]">{t.contact.faqBody}</p>
             <Button to={paths.faqs} variant="text" arrow className="mt-1 self-start">

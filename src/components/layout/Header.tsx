@@ -57,12 +57,14 @@ export function Header() {
 
   return (
     <header className="bg-paper/92 border-border sticky top-0 z-50 border-b backdrop-blur-md">
-      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center gap-5 px-5">
-        <Link to={paths.home} aria-label="Maa Yashoda — home" className="text-ink flex flex-none items-center gap-2.5">
+      <div className="mx-auto flex h-[64px] max-w-[1280px] items-center gap-2.5 px-4 sm:h-[72px] sm:gap-5 sm:px-5">
+        <Link to={paths.home} aria-label="Maa Yashoda home" className="text-ink flex min-w-0 flex-1 items-center gap-2.5 lg:flex-none">
           <Logo />
-          <span className="flex flex-col leading-[1.15]">
-            <span className="text-[17px] font-bold tracking-[-0.02em]">Maa Yashoda</span>
-            <span className="text-faint text-[10.5px] font-semibold uppercase tracking-[0.09em]">Human Milk Bank Initiative</span>
+          <span className="flex min-w-0 flex-col leading-[1.15]">
+            <span className="truncate text-[16px] font-bold sm:text-[17px]">Maa Yashoda</span>
+            <span className="text-faint hidden truncate text-[10.5px] font-semibold uppercase tracking-[0.09em] min-[380px]:block">
+              Human Milk Bank Initiative
+            </span>
           </span>
         </Link>
 
@@ -74,7 +76,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2.5 lg:ml-0">
+        <div className="ml-auto flex flex-none items-center gap-2 lg:ml-0 sm:gap-2.5">
           <div className="relative" ref={langRef}>
             <button
               type="button"
@@ -84,13 +86,13 @@ export function Header() {
               }}
               aria-haspopup="true"
               aria-expanded={langOpen}
-              className="border-border text-ink hover:border-border-strong flex h-10 items-center gap-1.5 rounded-[10px] border bg-paper px-3 text-[13.5px] font-medium"
+              className="border-border text-ink hover:border-border-strong flex h-10 items-center gap-1.5 rounded-[10px] border bg-paper px-2.5 text-[13.5px] font-medium sm:px-3"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="9" />
                 <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
               </svg>
-              <span>{t.label}</span>
+              <span className="max-w-[3.5rem] truncate sm:max-w-none">{t.label}</span>
             </button>
             {langOpen ? (
               <ul role="menu" className="border-border card-shadow absolute right-0 top-[46px] flex min-w-[156px] flex-col gap-0.5 rounded-2xl border bg-paper p-1.5">
@@ -138,7 +140,7 @@ export function Header() {
       </div>
 
       {menuOpen ? (
-        <nav aria-label="Mobile" className="border-border flex flex-col gap-0.5 border-t bg-paper px-5 pb-5 pt-3 lg:hidden">
+        <nav aria-label="Mobile" className="border-border flex max-h-[calc(100dvh-64px)] flex-col gap-0.5 overflow-y-auto border-t bg-paper px-4 pb-5 pt-3 sm:px-5 lg:hidden">
           {mobileNavItems.map((item) => (
             <NavLink
               key={item.to}

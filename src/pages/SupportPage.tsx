@@ -15,11 +15,11 @@ export default function SupportPage() {
       <PageHead title={t.support.title} />
 
       <section className="bg-surface-1 border-border animate-fade-up border-b" style={ringStyle()}>
-        <div className="mx-auto max-w-[1280px] px-5 pb-20 pt-18">
+        <div className="mx-auto max-w-[1280px] px-4 pb-14 pt-12 sm:px-5 sm:pb-20 sm:pt-18">
           <div className="flex max-w-[780px] flex-col gap-5.5">
             <Eyebrow>{t.support.eyebrow}</Eyebrow>
             <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">{t.support.h1}</h1>
-            <p className="text-muted max-w-[680px] text-[18.5px] leading-relaxed">{t.support.lead}</p>
+            <p className="text-muted max-w-[680px] text-base leading-relaxed sm:text-[18.5px]">{t.support.lead}</p>
             <Button href="#ways" variant="outline" className="mt-1.5 self-start">
               {t.cta.exploreWays}
             </Button>
@@ -44,7 +44,7 @@ export default function SupportPage() {
         </div>
         <ul className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3">
           {t.support.areas.map((a) => (
-            <li key={a.t} className="card-shadow flex flex-col gap-2 rounded-[18px] bg-paper p-6">
+            <li key={a.t} className="card-shadow flex flex-col gap-2 rounded-[18px] bg-paper p-5 sm:p-6">
               <span className="text-ink text-[16.5px] font-semibold">{a.t}</span>
               <span className="text-muted text-[14.5px] leading-[1.65]">{a.d}</span>
             </li>
@@ -59,7 +59,7 @@ export default function SupportPage() {
         </div>
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {t.support.ways.map((w, i) => (
-            <li key={w.t} className="card-shadow border-border flex flex-col gap-3 rounded-[20px] border p-7">
+            <li key={w.t} className="card-shadow border-border flex flex-col gap-3 rounded-[18px] border p-5 sm:rounded-[20px] sm:p-7">
               <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{`0${i + 1}`}</span>
               <span className="text-ink text-[17.5px] font-semibold">{w.t}</span>
               <span className="text-muted text-[15px] leading-[1.65]">{w.d}</span>
@@ -70,7 +70,7 @@ export default function SupportPage() {
 
       <Section tone="tint" border="both">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="card-shadow border-border flex flex-col gap-3 rounded-[20px] border bg-paper p-7.5">
+          <div className="card-shadow border-border flex flex-col gap-3 rounded-[18px] border bg-paper p-5 sm:rounded-[20px] sm:p-7.5">
             <Eyebrow>{t.support.finEyebrow}</Eyebrow>
             <h2 className="text-ink text-xl font-semibold tracking-[-0.02em]">{t.support.finTitle}</h2>
             <p className="text-muted text-[15.5px] leading-[1.7]">{t.support.finBody}</p>
@@ -91,7 +91,7 @@ export default function SupportPage() {
       </Section>
 
       <Section id="enquiry">
-        <div className="card-shadow border-border mx-auto grid max-w-[900px] grid-cols-1 items-start gap-9 rounded-3xl border bg-paper p-8 sm:p-10 lg:grid-cols-2">
+        <div className="card-shadow border-border mx-auto grid max-w-[900px] grid-cols-1 items-start gap-7 rounded-[22px] border bg-paper p-5 sm:gap-9 sm:rounded-3xl sm:p-10 lg:grid-cols-2">
           <div className="flex flex-col gap-3">
             <Eyebrow>{t.support.formEyebrow}</Eyebrow>
             <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.support.formTitle}</h2>
@@ -100,14 +100,14 @@ export default function SupportPage() {
           <div className="flex flex-col gap-4.5">
             <a
               href="tel:+910000000000"
-              className="bg-brand text-paper hover:bg-brand-hover flex min-h-[56px] items-center justify-center gap-2.5 rounded-2xl px-6.5 text-base font-semibold hover:-translate-y-px"
+              className="bg-brand text-paper hover:bg-brand-hover flex min-h-[54px] items-center justify-center gap-2.5 rounded-xl px-5 text-center text-base font-semibold leading-snug hover:-translate-y-px sm:min-h-[56px] sm:rounded-2xl sm:px-6.5"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5Z" />
               </svg>
               <span>{t.cta.talkToTeam}</span>
             </a>
-            <div className="card-shadow border-border flex flex-col gap-1 rounded-2xl border bg-surface-1 px-5 py-4.5">
+            <div className="card-shadow border-border flex flex-col gap-1 rounded-2xl border bg-surface-1 px-4 py-4 sm:px-5 sm:py-4.5">
               <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{phone.t}</span>
               <span className="text-ink text-lg font-semibold">{phone.d}</span>
             </div>
