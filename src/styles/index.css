@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans Devanagari", "Noto Sans Gujarati", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #201859;
+  --color-paper: #fdfdfd;
+  --color-brand: #ea4885;
+  --color-brand-hover: #d63a76;
+  --color-brand-tint: #fce7f0;
+  --color-brand-tint-border: #f5c9dd;
+  --color-brand-strong: #c02f68;
+  --color-brand-soft: #83396b;
+  --color-muted: #6f6782;
+  --color-faint: #948aac;
+  --color-border: #e7e3ec;
+  --color-border-strong: #cfc8d9;
+  --color-surface-1: #faf8fc;
+  --color-surface-2: #f2f0f8;
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 0.7, 0.2, 1) both;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-ring: pulse-ring 7s ease-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.92);
+      opacity: 0.55;
+    }
+    70%,
+    100% {
+      transform: scale(1.12);
+      opacity: 0;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+}
+
+::placeholder {
+  color: var(--color-faint);
+}
+
+:focus-visible {
+  outline: 3px solid rgb(234 72 133 / 0.35);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.card-shadow {
+  box-shadow:
+    0 1px 2px rgb(32 24 89 / 0.04),
+    0 10px 26px rgb(32 24 89 / 0.06);
+}
+
+/* Vertical/horizontal connector line used by step-flow lists */
+.step-connector {
+  position: relative;
+}
+.step-connector::before {
+  content: "";
+  position: absolute;
+  background: var(--color-border-strong);
+  left: 19px;
+  top: 46px;
+  width: 1px;
+  height: calc(100% - 26px);
+}
+.step-connector:last-child::before {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .step-flow .step-connector {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step-flow .step-connector > span:last-child {
+    padding-top: 0;
+  }
+  .step-flow .step-connector::before {
+    left: 46px;
+    top: 19px;
+    width: calc(100% - 26px);
+    height: 1px;
+  }
+}

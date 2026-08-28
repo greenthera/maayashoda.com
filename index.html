@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!--
+      No static <title>/<meta name="description"> here on purpose: every route
+      sets its own via <PageHead>, and a static fallback would sit in the
+      document alongside the localized one, which is confusing for anything
+      (search engines, link-preview bots) that doesn't respect "first wins".
+    -->
+  </head>
+  <body>
+    <noscript>
+      <style>
+        section {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
