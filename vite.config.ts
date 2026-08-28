@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: './',
   ssgOptions: {
     includedRoutes(paths) {
       return paths.filter((p) => !p.includes("*"));
