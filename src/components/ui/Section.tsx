@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { useInView } from "../../hooks/useInView";
 import { decorStyle, type Decor } from "../../lib/decor";
 
 type Tone = "paper" | "tint" | "surface" | "ink";
@@ -27,7 +26,6 @@ interface SectionProps {
 /**
  * Full-width section with the site's signature stacked, rounded-top overlap
  * so consecutive sections read as soft, layered "cards" down the page.
- * Fades/slides up the first time it scrolls into view.
  */
 export function Section({
   tone = "paper",
@@ -39,8 +37,6 @@ export function Section({
   containerClassName = "",
   children,
 }: SectionProps) {
-  const { ref, inView } = useInView<HTMLElement>();
-
   const borderClasses =
     border === "top"
       ? "border-t border-border"
@@ -55,12 +51,11 @@ export function Section({
 
   return (
     <section
-      ref={ref}
       id={id}
       style={decorStyle(effectiveDecor, isInk)}
-      className={`relative scroll-mt-20 transition-all duration-700 ease-out sm:scroll-mt-24 ${
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      } ${toneClasses[tone]} ${borderClasses} ${overlap ? "-mt-6 rounded-t-[26px] sm:-mt-10 sm:rounded-t-[40px]" : ""} ${className}`}
+      className={`relative scroll-mt-20 sm:scroll-mt-24 ${toneClasses[tone]} ${borderClasses} ${
+        overlap ? "-mt-6 rounded-t-[26px] sm:-mt-10 sm:rounded-t-[40px]" : ""
+      } ${className}`}
     >
       <div className={`mx-auto max-w-[1280px] px-4 py-12 sm:px-5 md:py-24 ${containerClassName}`}>{children}</div>
     </section>

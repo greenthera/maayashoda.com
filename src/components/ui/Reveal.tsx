@@ -25,13 +25,16 @@ export function Reveal({ children, className = "", as: Tag = "div", step = 60, y
     <Tag ref={ref} className={className}>
       {Children.map(children, (child, i) => {
         if (!isValidElement(child)) return child;
-        const el = child as React.ReactElement<{ className?: string; style?: CSSProperties }>;
+        const el = child as React.ReactElement<{ style?: CSSProperties }>;
         return cloneElement(el, {
-          className: `${el.props.className ?? ""} transition-all duration-500 ease-out`.trim(),
           style: {
             ...el.props.style,
             opacity: inView ? 1 : 0,
-            transform: inView ? "none" : `translateY(${y}px)`,
+            translate: inView ? undefined : `0 ${y}px`,
+            // Inline so it always wins over any `transition-*` utility on the child.
+            transitionProperty: "opacity, translate, transform",
+            transitionDuration: "500ms",
+            transitionTimingFunction: "cubic-bezier(0.22, 0.7, 0.2, 1)",
             transitionDelay: inView ? `${i * step}ms` : "0ms",
           },
         });

@@ -54,16 +54,18 @@ export default function PartnersPage() {
         <div className="flex flex-col gap-10">
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.partners.rotaryTitle}</h2>
 
-          <div className="card-shadow border-border relative grid w-full max-w-3xl overflow-hidden rounded-[24px] border bg-white sm:grid-cols-[240px_1fr]">
-            <span aria-hidden="true" className="bg-brand absolute inset-y-0 left-0 w-1 sm:w-1.5" />
-            <div className="border-border flex items-center justify-center border-b bg-surface-1 px-9 py-10 sm:border-b-0 sm:border-r">
-              <img src={hostClubLogo} alt={t.partners.hostClub} className="max-h-20 w-auto max-w-[180px] object-contain" />
+          <Reveal>
+            <div className="card-shadow border-border relative grid w-full max-w-3xl overflow-hidden rounded-[24px] border bg-white sm:grid-cols-[240px_1fr]">
+              <span aria-hidden="true" className="bg-brand absolute inset-y-0 left-0 w-1 sm:w-1.5" />
+              <div className="border-border flex items-center justify-center border-b bg-surface-1 px-9 py-10 sm:border-b-0 sm:border-r">
+                <img src={hostClubLogo} alt={t.partners.hostClub} className="max-h-20 w-auto max-w-[180px] object-contain" />
+              </div>
+              <div className="flex flex-col justify-center gap-2 px-8 py-8">
+                <span className="text-brand-strong text-[11.5px] font-semibold uppercase tracking-[0.1em]">{t.partners.hostLabel}</span>
+                <span className="text-ink text-xl font-semibold leading-snug tracking-[-0.01em] sm:text-[26px]">{t.partners.hostClub}</span>
+              </div>
             </div>
-            <div className="flex flex-col justify-center gap-2 px-8 py-8">
-              <span className="text-brand-strong text-[11.5px] font-semibold uppercase tracking-[0.1em]">{t.partners.hostLabel}</span>
-              <span className="text-ink text-xl font-semibold leading-snug tracking-[-0.01em] sm:text-[26px]">{t.partners.hostClub}</span>
-            </div>
-          </div>
+          </Reveal>
 
           <div className="flex flex-col gap-4">
             <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.partners.participatingLabel}</span>
@@ -71,7 +73,7 @@ export default function PartnersPage() {
               {t.partners.clubs.map((name, index) => (
                 <li
                   key={name}
-                  className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white text-center transition-transform duration-300 ease-out hover:-translate-y-1"
+                  className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white text-center hover:-translate-y-1"
                 >
                   <div className="flex h-20 items-center justify-center px-6">
                     <img src={participatingClubLogos[index]} alt={name} className="max-h-14 w-auto max-w-42.5 object-contain" />
@@ -84,13 +86,13 @@ export default function PartnersPage() {
 
           <div className="flex flex-col gap-4">
             <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.partners.reservedLabel}</span>
-            <ul className="flex flex-wrap gap-2.5">
+            <Reveal as="ul" className="flex flex-wrap gap-2.5" step={45}>
               {t.partners.reserved.map((r) => (
                 <li key={r} className="text-faint rounded-full border border-dashed border-border-strong px-4.5 py-2.5 text-sm font-medium">
                   {r}
                 </li>
               ))}
-            </ul>
+            </Reveal>
           </div>
         </div>
       </Section>
@@ -100,7 +102,7 @@ export default function PartnersPage() {
           <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.partners.healthTitle}</h2>
           <Reveal as="ul" className="grid grid-cols-1 gap-5 lg:grid-cols-3">
             {t.partners.health.map((h, index) => (
-              <li key={h.n} className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white transition-transform duration-300 ease-out hover:-translate-y-1">
+              <li key={h.n} className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white hover:-translate-y-1">
                 <div className="flex h-36 items-center justify-center bg-white p-5">
                   <img
                     src={healthcareImages[index]}
@@ -120,7 +122,7 @@ export default function PartnersPage() {
       </Section>
 
       <Section tone="tint" border="both" decor="ring">
-        <div className="grid grid-cols-1 items-center gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+        <Reveal className="grid grid-cols-1 items-center gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12" step={120}>
           <div className="border-brand-tint-border card-shadow flex items-center justify-center rounded-[26px] border bg-white px-10 py-14">
             <img src={implementationLogo} alt={t.partners.impl.n} className="max-h-24 w-auto max-w-[220px] object-contain" />
           </div>
@@ -130,11 +132,11 @@ export default function PartnersPage() {
             <span className="bg-paper text-brand-strong rounded-full px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.08em]">{t.partners.impl.r}</span>
             <p className="text-muted max-w-[520px] text-[16.5px] leading-[1.7]">{t.partners.eco[2].d}</p>
           </div>
-        </div>
+        </Reveal>
       </Section>
 
       <Section tone="surface">
-        <div className="border-border card-shadow grid grid-cols-1 items-center gap-9 overflow-hidden rounded-[28px] border bg-paper p-6 sm:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:p-12">
+        <Reveal className="border-border card-shadow grid grid-cols-1 items-center gap-9 overflow-hidden rounded-[28px] border bg-paper p-6 sm:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:p-12" step={120}>
           <div className="flex flex-col gap-3.5">
             <Eyebrow>{t.grant.badge}</Eyebrow>
             <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.partners.grantTitle}</h2>
@@ -151,7 +153,7 @@ export default function PartnersPage() {
             <span className="text-brand-strong text-[11.5px] font-semibold uppercase tracking-[0.1em]">{t.home.grantNumberLabel}</span>
             <span className="text-ink text-[34px] font-bold leading-none tracking-[-0.025em] sm:text-[40px]">GG2694832</span>
           </div>
-        </div>
+        </Reveal>
       </Section>
 
       <Section>
@@ -159,7 +161,9 @@ export default function PartnersPage() {
           <Eyebrow>{t.partners.flowEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.partners.flowTitle}</h2>
         </div>
-        <StepList steps={t.partners.flowSteps.map((label) => ({ label }))} />
+        <Reveal>
+          <StepList steps={t.partners.flowSteps.map((label) => ({ label }))} />
+        </Reveal>
       </Section>
 
       <Section tone="surface">
