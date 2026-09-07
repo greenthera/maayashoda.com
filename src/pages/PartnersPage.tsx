@@ -17,14 +17,21 @@ export default function PartnersPage() {
       <PageHead title={t.partners.title} />
 
       <section className="bg-surface-1 border-border animate-fade-up border-b" style={ringStyle()}>
-        <div className="mx-auto max-w-[1280px] px-5 pb-20 pt-18">
-          <div className="flex max-w-[780px] flex-col gap-5.5">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-10 px-5 pb-16 pt-14 sm:pt-16 lg:grid-cols-[1fr_auto] lg:gap-16">
+          <div className="flex max-w-[680px] flex-col gap-5.5">
             <Eyebrow>{t.partners.eyebrow}</Eyebrow>
             <h1 className="text-ink text-[clamp(2.2rem,4.6vw,3.6rem)] font-bold leading-[1.06] tracking-[-0.035em]">
               <AnimatedWords text={t.partners.h1} />
             </h1>
-            <p className="text-muted max-w-[680px] text-[18.5px] leading-relaxed">{t.partners.lead}</p>
+            <p className="text-muted text-[18.5px] leading-relaxed">{t.partners.lead}</p>
           </div>
+          <img
+            src={`${import.meta.env.BASE_URL}images/partners/rotary-international.svg`}
+            alt="Rotary International"
+            width={280}
+            height={280}
+            className="mx-auto h-auto w-[clamp(150px,42vw,280px)] shrink-0 lg:mx-0 lg:justify-self-end"
+          />
         </div>
       </section>
 
