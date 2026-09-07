@@ -20,8 +20,8 @@ export default function AboutPage() {
             <h1 className="text-ink text-[clamp(2.2rem,4.6vw,3.6rem)] font-bold leading-[1.06] tracking-[-0.035em]">{t.about.h1}</h1>
             <p className="text-muted max-w-[680px] text-[18.5px] leading-relaxed">{t.about.lead}</p>
           </div>
-          <div className="border-border bg-surface-2 mt-10 h-[380px] w-full overflow-hidden rounded-[28px] border">
-            <ImageSlot label="Project title image — outreach, van or milk bank photograph" className="h-full" />
+          <div className="border-border bg-white mt-10 h-[380px] sm:h-[480px] w-full overflow-hidden rounded-[28px] border">
+            <ImageSlot src={`${import.meta.env.BASE_URL}images/project/yashoda-maa.webp`} fit="contain" label="Yashoda Maa — bridge between donor mothers and babies" className="h-full" />
           </div>
         </div>
       </section>

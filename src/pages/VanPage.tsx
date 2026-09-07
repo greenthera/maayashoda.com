@@ -3,7 +3,6 @@ import { PageHead } from "../components/layout/PageHead";
 import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
-import { ImageSlot } from "../components/ui/ImageSlot";
 import { ringStyle } from "../lib/decor";
 import { StepList } from "../components/ui/StepList";
 
@@ -21,8 +20,8 @@ export default function VanPage() {
             <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">{t.van.h1}</h1>
             <p className="text-muted text-[18px] leading-relaxed">{t.van.lead}</p>
           </div>
-          <div className="border-border bg-surface-2 min-h-[360px] overflow-hidden rounded-3xl border">
-            <ImageSlot label="Milk Bank Van photograph" className="min-h-[360px]" />
+          <div className="border-border flex min-h-[240px] items-center justify-center overflow-hidden rounded-3xl border bg-white px-5 py-10 shadow-sm sm:min-h-[300px] sm:px-8">
+            <img src={`${import.meta.env.BASE_URL}images/project/original-van.webp`} alt="Complete milk bank van from the original Yashoda Maa artwork" width={565} height={235} className="block h-auto w-full max-w-[480px] object-contain" />
           </div>
         </div>
       </section>

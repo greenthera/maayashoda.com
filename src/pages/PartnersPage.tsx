@@ -1,3 +1,4 @@
+import { hostClubLogo, participatingClubLogos, healthcareImages, implementationLogo } from "../content/partnerAssets";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { PageHead } from "../components/layout/PageHead";
 import { Section } from "../components/ui/Section";
@@ -29,7 +30,7 @@ export default function PartnersPage() {
           <Eyebrow>{t.partners.ecoEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.partners.ecoTitle}</h2>
         </div>
-        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 lg:grid-cols-4 lg:grid-cols-4">
           {t.partners.eco.map((e) => (
             <li key={e.t} className="card-shadow border-border flex flex-col gap-2.5 rounded-[20px] border p-6.5">
               <span className="text-ink text-[16.5px] font-semibold">{e.t}</span>
@@ -40,28 +41,28 @@ export default function PartnersPage() {
       </Section>
 
       <Section tone="surface">
-        <div className="flex flex-col gap-11">
+        <div className="flex flex-col gap-8">
           <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.partners.rotaryTitle}</h2>
 
           <div className="flex flex-col gap-4">
             <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.partners.hostLabel}</span>
-            <div className="card-shadow flex max-w-[560px] items-center gap-5.5 rounded-[20px] bg-paper px-8 py-7">
-              <div className="h-[72px] w-[104px] flex-none">
-                <ImageSlot label="Host club logo" fit="contain" compact className="h-full" />
+            <div className="card-shadow border-border grid w-full max-w-2xl overflow-hidden rounded-2xl border bg-white min-[420px]:grid-cols-[180px_1fr]">
+              <div className="flex h-36 items-center justify-center px-6 py-5">
+                <ImageSlot src={hostClubLogo} label={t.partners.hostClub} fit="contain" compact className="h-full" />
               </div>
-              <span className="text-ink text-[18.5px] font-semibold leading-snug">{t.partners.hostClub}</span>
+              <span className="text-ink border-border flex items-center justify-center border-t bg-surface-1 px-6 py-5 text-center text-lg font-semibold leading-snug min-[420px]:justify-start min-[420px]:border-l min-[420px]:border-t-0 min-[420px]:text-left">{t.partners.hostClub}</span>
             </div>
           </div>
 
           <div className="flex flex-col gap-4">
             <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.partners.participatingLabel}</span>
-            <ul className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
-              {t.partners.clubs.map((name) => (
-                <li key={name} className="card-shadow flex min-h-[156px] flex-col items-center justify-center gap-3.5 rounded-[18px] bg-paper px-5 py-5.5 text-center">
-                  <div className="h-[60px] w-24">
-                    <ImageSlot label="Logo" fit="contain" compact className="h-full" />
+            <ul className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 lg:grid-cols-4">
+              {t.partners.clubs.map((name, index) => (
+                <li key={name} className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white text-center transition-shadow hover:shadow-md">
+                  <div className="flex h-32 items-center justify-center px-5 py-5 sm:h-36 sm:px-6">
+                    <ImageSlot src={participatingClubLogos[index]} label={name} fit="contain" compact className="h-full" />
                   </div>
-                  <span className="text-ink text-[15px] font-semibold leading-snug">{name}</span>
+                  <span className="text-ink border-border flex min-h-20 flex-1 items-center justify-center border-t bg-surface-1 px-4 py-4 text-[15px] font-semibold leading-snug">{name}</span>
                 </li>
               ))}
             </ul>
@@ -84,26 +85,28 @@ export default function PartnersPage() {
         <div className="flex flex-col gap-10">
           <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.partners.healthTitle}</h2>
           <ul className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-            {t.partners.health.map((h) => (
-              <li key={h.n} className="card-shadow border-border flex flex-col gap-4 rounded-[20px] border p-7.5">
-                <div className="h-[60px] w-24">
-                  <ImageSlot label="Logo" fit="contain" compact className="h-full" />
+            {t.partners.health.map((h, index) => (
+              <li key={h.n} className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white transition-shadow hover:shadow-md">
+                <div className="flex h-36 items-center justify-center bg-white p-5">
+                  <ImageSlot src={healthcareImages[index]} label={h.n} alt={index === 2 ? "Government Medical College Surat logo, parent institution of the Department of Pediatrics" : h.n} fit="contain" compact className="max-h-24 max-w-32" />
                 </div>
-                <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{h.r}</span>
-                <span className="text-ink text-lg font-semibold leading-snug">{h.n}</span>
+                <div className="border-border flex flex-1 flex-col gap-2 border-t bg-surface-1 px-5 py-5 text-center">
+                  <span className="text-brand-strong text-xs font-semibold uppercase tracking-[0.09em]">{h.r}</span>
+                  <span className="text-ink text-base font-semibold leading-snug">{h.n}</span>
+                </div>
               </li>
             ))}
           </ul>
 
-          <div className="mt-5 flex flex-col gap-5">
+          <div className="mt-1 flex flex-col gap-4">
             <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.partners.implTitle}</h2>
-            <div className="bg-brand-tint card-shadow flex max-w-[520px] items-center gap-5.5 rounded-[22px] p-8">
-              <div className="h-[72px] w-[104px] flex-none">
-                <ImageSlot label="Partner logo" fit="contain" compact className="h-full" />
+            <div className="card-shadow border-border grid w-full max-w-2xl overflow-hidden rounded-2xl border bg-white min-[420px]:grid-cols-[180px_1fr]">
+              <div className="flex h-36 items-center justify-center px-6 py-5">
+                <ImageSlot src={implementationLogo} label={t.partners.impl.n} fit="contain" compact className="h-full" />
               </div>
-              <span className="flex flex-col gap-1.5">
+              <span className="border-border flex flex-col justify-center gap-2 border-t bg-brand-tint px-6 py-5 text-center min-[420px]:border-l min-[420px]:border-t-0 min-[420px]:text-left">
                 <span className="text-[11.5px] font-semibold uppercase tracking-[0.09em] text-[#c07a9c]">{t.partners.impl.r}</span>
-                <span className="text-ink text-2xl font-bold tracking-[-0.02em]">{t.partners.impl.n}</span>
+                <span className="text-ink text-xl font-semibold tracking-[-0.02em]">{t.partners.impl.n}</span>
               </span>
             </div>
           </div>

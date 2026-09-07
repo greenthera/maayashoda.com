@@ -131,7 +131,7 @@ const en = {
     galleryEyebrow: "Gallery",
     galleryTitle: "Moments from the initiative",
     galleryLead:
-      "Photographs from awareness sessions, community outreach and partner engagements. Images are added as they are approved for publication.",
+      "Illustrations celebrating awareness, community outreach, partnerships and the people behind the initiative.",
     statsEyebrow: "Impact",
     statsTitle: "The impact we create together",
     statsNote:

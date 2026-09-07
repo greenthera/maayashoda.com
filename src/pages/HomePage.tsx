@@ -1,3 +1,4 @@
+import { partnerLogos } from "../content/partnerAssets";
 import { useState } from "react";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { PageHead } from "../components/layout/PageHead";
@@ -10,11 +11,11 @@ import { ImageSlot } from "../components/ui/ImageSlot";
 import { Accordion } from "../components/ui/Accordion";
 
 const GALLERY = [
-  { id: "gallery-1", label: "Awareness session", big: true },
-  { id: "gallery-2", label: "Community outreach", big: false },
-  { id: "gallery-3", label: "Partner engagement", big: false },
-  { id: "gallery-4", label: "Milk bank van", big: false },
-  { id: "gallery-5", label: "Team at work", big: false },
+  { id: "gallery-1", src: `${import.meta.env.BASE_URL}images/moments/awareness-session-rich.webp`, label: "Awareness session", big: true },
+  { id: "gallery-2", src: `${import.meta.env.BASE_URL}images/moments/community-outreach-rich.webp`, label: "Community outreach", big: false },
+  { id: "gallery-3", src: `${import.meta.env.BASE_URL}images/moments/partner-engagement-rich.webp`, label: "Partner engagement", big: false },
+  { id: "gallery-4", src: `${import.meta.env.BASE_URL}images/moments/milk-bank-van-rich.webp`, label: "Milk bank van", big: false },
+  { id: "gallery-5", src: `${import.meta.env.BASE_URL}images/moments/team-at-work-rich.webp`, label: "Team at work", big: false },
 ];
 
 export default function HomePage() {
@@ -78,9 +79,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1280px] px-4 pb-10 pt-4 sm:px-5 sm:pb-14 sm:pt-6">
           <Marquee>
             {partnerNames.map((name, i) => (
-              <div key={i} className="flex flex-none items-center gap-2 opacity-70">
-                <span aria-hidden="true" className="bg-surface-2 h-6 w-6 rounded-md" />
-                <span className="text-muted whitespace-nowrap text-[12.5px] font-semibold">{name}</span>
+              <div key={name} className="flex h-14 flex-none items-center gap-3 px-3">
+                <img src={partnerLogos[i]} alt="" className="h-10 w-14 flex-none object-contain" />
+                <span className="text-muted whitespace-nowrap text-[13px] font-semibold">{name}</span>
               </div>
             ))}
           </Marquee>
@@ -119,8 +120,8 @@ export default function HomePage() {
 
       <Section>
         <div className="grid grid-cols-1 items-center gap-11 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="border-border bg-surface-1 min-h-[260px] overflow-hidden rounded-[22px] border sm:min-h-[360px] sm:rounded-3xl">
-            <ImageSlot label="Milk Bank Van photograph" className="min-h-[260px] sm:min-h-[360px]" />
+          <div className="border-border flex min-h-[240px] items-center justify-center overflow-hidden rounded-3xl border bg-white px-5 py-10 shadow-sm sm:min-h-[300px] sm:px-8">
+            <img src={`${import.meta.env.BASE_URL}images/project/original-van.webp`} alt="Complete milk bank van from the original Yashoda Maa artwork" width={565} height={235} className="block h-auto w-full max-w-[480px] object-contain" />
           </div>
           <div className="flex max-w-[560px] flex-col gap-5.5">
             <Eyebrow>{t.home.vanEyebrow}</Eyebrow>
@@ -174,14 +175,9 @@ export default function HomePage() {
         </div>
         <Marquee durationSeconds={45}>
           {partnerNames.map((name, i) => (
-            <div key={i} className="card-shadow border-border flex h-[132px] w-[232px] flex-none flex-col items-center justify-center gap-3 rounded-[18px] border bg-paper px-4.5 py-5">
-              <span aria-hidden="true" className="bg-surface-2 grid h-11 w-11 place-items-center rounded-xl">
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#948aac" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="8.5" />
-                  <path d="M12 3.5v17M3.5 12h17" />
-                </svg>
-              </span>
-              <span className="text-ink text-center text-[13.5px] font-semibold leading-snug">{name}</span>
+            <div key={name} className="border-border flex h-40 w-56 flex-none flex-col items-center justify-center gap-4 rounded-2xl border bg-white px-5 py-5 shadow-sm">
+              <img src={partnerLogos[i]} alt="" loading="lazy" className="h-16 w-32 object-contain" />
+              <span className="text-ink text-center text-[13px] font-semibold leading-snug">{name}</span>
             </div>
           ))}
         </Marquee>
@@ -202,11 +198,11 @@ export default function HomePage() {
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[182px]">
           {GALLERY.map((g) => (
             <li key={g.id} className={`border-border card-shadow relative min-h-[200px] overflow-hidden rounded-[22px] border bg-surface-2 ${g.big ? "sm:col-span-2 sm:row-span-2 min-h-[380px]" : ""}`}>
-              <ImageSlot label={g.label} className="h-full" />
+              <ImageSlot src={g.src} label={g.label} className="h-full" />
               <button
                 type="button"
                 onClick={() => setLightbox(g.id)}
-                aria-label="Open photograph"
+                aria-label={`Open ${g.label} illustration`}
                 className="border-border card-shadow absolute bottom-3 right-3 z-10 grid h-10 w-10 place-items-center rounded-xl border bg-paper/90 hover:border-brand"
               >
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#201859" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -234,7 +230,7 @@ export default function HomePage() {
               </svg>
             </button>
             <div className="h-[min(720px,78vh)] w-[min(1100px,88vw)]">
-              <ImageSlot label={GALLERY.find((g) => g.id === lightbox)?.label ?? ""} fit="contain" className="h-full rounded-[20px]" />
+              <ImageSlot src={GALLERY.find((g) => g.id === lightbox)?.src} label={GALLERY.find((g) => g.id === lightbox)?.label ?? ""} fit="contain" className="h-full rounded-[20px]" />
             </div>
           </div>
         ) : null}
