@@ -4,10 +4,10 @@
   "\u0000/Users/work/Desktop/Projects/maayashoda.com/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/Users/work/Desktop/Projects/maayashoda.com/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/Users/work/Desktop/Projects/maayashoda.com/node_modules/react-dom/client.js?commonjs-es-import": [
-    "/maayashoda.com/assets/client-sabIVLBi.js"
+    "/maayashoda.com/assets/client-BSqeKHu8.js"
   ],
   "\u0000/Users/work/Desktop/Projects/maayashoda.com/node_modules/react-dom/client.js?commonjs-exports": [
-    "/maayashoda.com/assets/client-sabIVLBi.js"
+    "/maayashoda.com/assets/client-BSqeKHu8.js"
   ],
   "\u0000/Users/work/Desktop/Projects/maayashoda.com/node_modules/react-dom/index.js?commonjs-es-import": [],
   "\u0000/Users/work/Desktop/Projects/maayashoda.com/node_modules/react-dom/index.js?commonjs-module": [],
@@ -33,7 +33,7 @@
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/maayashoda.com/assets/client-sabIVLBi.js"
+    "/maayashoda.com/assets/client-BSqeKHu8.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
@@ -51,51 +51,51 @@
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BhGKpaqQ.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C1RTs5UA.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.CoMLbIiW.mjs": [
-    "/maayashoda.com/assets/AnimatedWords-Dh-hn6Qe.js"
+    "/maayashoda.com/assets/AnimatedWords-vTx8UKMe.js"
   ],
   "src/components/forms/EnquiryForm.tsx": [
-    "/maayashoda.com/assets/EnquiryForm-p1rLF88I.js"
+    "/maayashoda.com/assets/EnquiryForm-DVXDRh5M.js"
   ],
   "src/components/forms/fields.tsx": [
-    "/maayashoda.com/assets/EnquiryForm-p1rLF88I.js"
+    "/maayashoda.com/assets/EnquiryForm-DVXDRh5M.js"
   ],
   "src/components/layout/Footer.tsx": [],
   "src/components/layout/Header.tsx": [],
   "src/components/layout/Layout.tsx": [],
   "src/components/layout/LoadingBar.tsx": [],
   "src/components/layout/PageHead.tsx": [
-    "/maayashoda.com/assets/AnimatedWords-Dh-hn6Qe.js"
+    "/maayashoda.com/assets/AnimatedWords-vTx8UKMe.js"
   ],
   "src/components/layout/ScrollManager.tsx": [],
   "src/components/ui/Accordion.tsx": [
-    "/maayashoda.com/assets/Accordion-D_FUJTXy.js"
+    "/maayashoda.com/assets/Accordion-BkH8fCHV.js"
   ],
   "src/components/ui/AnimatedWords.tsx": [
-    "/maayashoda.com/assets/AnimatedWords-Dh-hn6Qe.js"
+    "/maayashoda.com/assets/AnimatedWords-vTx8UKMe.js"
   ],
   "src/components/ui/Button.tsx": [
-    "/maayashoda.com/assets/AnimatedWords-Dh-hn6Qe.js"
+    "/maayashoda.com/assets/AnimatedWords-vTx8UKMe.js"
   ],
   "src/components/ui/Eyebrow.tsx": [
-    "/maayashoda.com/assets/Eyebrow-l-NpWcB9.js"
+    "/maayashoda.com/assets/Eyebrow-Cei6TSM_.js"
   ],
   "src/components/ui/GalleryLightbox.tsx": [
-    "/maayashoda.com/assets/HomePage-C-TVb-bM.js"
+    "/maayashoda.com/assets/HomePage-CxP2k3Kc.js"
   ],
   "src/components/ui/Marquee.tsx": [
-    "/maayashoda.com/assets/HomePage-C-TVb-bM.js"
+    "/maayashoda.com/assets/HomePage-CxP2k3Kc.js"
   ],
   "src/components/ui/Reveal.tsx": [
-    "/maayashoda.com/assets/Reveal-0uWc32H6.js"
+    "/maayashoda.com/assets/Reveal-D9M5OPjC.js"
   ],
   "src/components/ui/Section.tsx": [
-    "/maayashoda.com/assets/Section-D4T_XYqs.js"
+    "/maayashoda.com/assets/Section-BLcah83Z.js"
   ],
   "src/components/ui/StepList.tsx": [
-    "/maayashoda.com/assets/StepList-CNBuSdWT.js"
+    "/maayashoda.com/assets/StepList-DhEN-DlZ.js"
   ],
   "src/components/ui/VanScene.tsx": [
-    "/maayashoda.com/assets/VanScene-BdYE-swh.js"
+    "/maayashoda.com/assets/VanScene-CNl7jArF.js"
   ],
   "src/content/en.ts": [],
   "src/content/gu.ts": [],
@@ -105,46 +105,46 @@
     "/maayashoda.com/assets/partnerAssets-us5ZtZ4q.js"
   ],
   "src/hooks/useInView.ts": [
-    "/maayashoda.com/assets/Section-D4T_XYqs.js"
+    "/maayashoda.com/assets/Section-BLcah83Z.js"
   ],
   "src/i18n/LanguageProvider.tsx": [],
   "src/lib/decor.ts": [
-    "/maayashoda.com/assets/AnimatedWords-Dh-hn6Qe.js"
+    "/maayashoda.com/assets/AnimatedWords-vTx8UKMe.js"
   ],
   "src/lib/paths.ts": [],
   "src/main.tsx": [],
   "src/pages/AboutPage.tsx": [
-    "/maayashoda.com/assets/AboutPage-C_wwOUdw.js"
+    "/maayashoda.com/assets/AboutPage-DPQpoPN1.js"
   ],
   "src/pages/ContactPage.tsx": [
-    "/maayashoda.com/assets/ContactPage-JZkKmuZK.js"
+    "/maayashoda.com/assets/ContactPage-lNWe21_t.js"
   ],
   "src/pages/DonorPage.tsx": [
-    "/maayashoda.com/assets/DonorPage-BxHBzQVB.js"
+    "/maayashoda.com/assets/DonorPage-ygYvCj3m.js"
   ],
   "src/pages/FaqsPage.tsx": [
-    "/maayashoda.com/assets/FaqsPage-BMTFHxNV.js"
+    "/maayashoda.com/assets/FaqsPage-2uOSP8bb.js"
   ],
   "src/pages/HomePage.tsx": [
-    "/maayashoda.com/assets/HomePage-C-TVb-bM.js"
+    "/maayashoda.com/assets/HomePage-CxP2k3Kc.js"
   ],
   "src/pages/LegalPage.tsx": [
-    "/maayashoda.com/assets/LegalPage-DPPqsQXL.js"
+    "/maayashoda.com/assets/LegalPage-BeQDab36.js"
   ],
   "src/pages/NotFoundPage.tsx": [
-    "/maayashoda.com/assets/NotFoundPage-DsG-_u9x.js"
+    "/maayashoda.com/assets/NotFoundPage-DKEiW-L7.js"
   ],
   "src/pages/PartnersPage.tsx": [
-    "/maayashoda.com/assets/PartnersPage-CRyG7qID.js"
+    "/maayashoda.com/assets/PartnersPage-C56LNUfe.js"
   ],
   "src/pages/SupportPage.tsx": [
-    "/maayashoda.com/assets/SupportPage-BCWYk3qV.js"
+    "/maayashoda.com/assets/SupportPage-hauBYzN5.js"
   ],
   "src/pages/ThankYouPage.tsx": [
-    "/maayashoda.com/assets/ThankYouPage-BBv4ZNDM.js"
+    "/maayashoda.com/assets/ThankYouPage-DfJqk-rr.js"
   ],
   "src/pages/VanPage.tsx": [
-    "/maayashoda.com/assets/VanPage-DW2wqo9v.js"
+    "/maayashoda.com/assets/VanPage-CN1QMMaS.js"
   ],
   "src/routes.tsx": [],
   "src/styles/index.css": []
