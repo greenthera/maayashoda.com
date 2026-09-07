@@ -514,7 +514,7 @@ const gu: Content = {
       { t: "સ્થાન", d: "સુરત, ગુજરાત, ભારત" },
     ],
     primaryContactLabel: "પ્રાથમિક પ્રોજેક્ટ સંપર્ક",
-    primaryContactName: "ડૉ. પ્રશાંત કરિયા",
+    primaryContactName: "ડૉ પ્રશાંત કારિયા",
     primaryContactNote: "સંપર્ક વિગતો પ્રકાશન મંજૂરીની પ્રતીક્ષામાં છે.",
     formEyebrow: "સામાન્ય પૂછપરછ",
     formTitle: "અમને પૂછપરછ મોકલો",

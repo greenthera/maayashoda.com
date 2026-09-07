@@ -520,7 +520,7 @@ const hi: Content = {
       { t: "स्थान", d: "सूरत, गुजरात, भारत" },
     ],
     primaryContactLabel: "प्राथमिक परियोजना संपर्क",
-    primaryContactName: "डॉ. प्रशांत करिया",
+    primaryContactName: "डॉ प्रशांत कारिया",
     primaryContactNote: "संपर्क विवरण प्रकाशन स्वीकृति की प्रतीक्षा में है।",
     formEyebrow: "सामान्य पूछताछ",
     formTitle: "हमें पूछताछ भेजें",
