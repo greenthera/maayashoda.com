@@ -1,0 +1,79 @@
+[
+  {
+    "source": "src/assets/3142.pdf",
+    "page": 1,
+    "file": "public/images/pdf/3142-page-1.webp",
+    "width": 2400,
+    "height": 1286
+  },
+  {
+    "source": "src/assets/6860.pdf",
+    "page": 1,
+    "file": "public/images/pdf/6860-page-1.webp",
+    "width": 2400,
+    "height": 1286
+  },
+  {
+    "source": "src/assets/Rotary Surat Riverside left side logo.pdf",
+    "page": 1,
+    "file": "public/images/pdf/rotary-surat-riverside-left-side-logo-page-1.webp",
+    "width": 2400,
+    "height": 950
+  },
+  {
+    "source": "src/assets/Rotary Surat Riverside.pdf",
+    "page": 1,
+    "file": "public/images/pdf/rotary-surat-riverside-page-1.webp",
+    "width": 2400,
+    "height": 1383
+  },
+  {
+    "source": "src/assets/Rotary Udhna.pdf",
+    "page": 1,
+    "file": "public/images/pdf/rotary-udhna-page-1.webp",
+    "width": 2400,
+    "height": 1210
+  },
+  {
+    "source": "src/assets/Sachin.pdf",
+    "page": 1,
+    "file": "public/images/pdf/sachin-page-1.webp",
+    "width": 2400,
+    "height": 1607
+  },
+  {
+    "source": "src/assets/Seaface.pdf",
+    "page": 1,
+    "file": "public/images/pdf/seaface-page-1.webp",
+    "width": 2400,
+    "height": 1451
+  },
+  {
+    "source": "src/assets/Shades Valley.pdf",
+    "page": 1,
+    "file": "public/images/pdf/shades-valley-page-1.webp",
+    "width": 2400,
+    "height": 1451
+  },
+  {
+    "source": "src/assets/Tapi.pdf",
+    "page": 1,
+    "file": "public/images/pdf/tapi-page-1.webp",
+    "width": 2400,
+    "height": 1607
+  },
+  {
+    "source": "src/assets/Udhna.pdf",
+    "page": 1,
+    "file": "public/images/pdf/udhna-page-1.webp",
+    "width": 2400,
+    "height": 1607
+  },
+  {
+    "source": "src/assets/district 3060.pdf",
+    "page": 1,
+    "file": "public/images/pdf/district-3060-page-1.webp",
+    "width": 2400,
+    "height": 1286
+  }
+]
