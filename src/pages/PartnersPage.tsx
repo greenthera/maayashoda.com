@@ -30,7 +30,7 @@ export default function PartnersPage() {
             alt="Rotary International"
             width={280}
             height={280}
-            className="mx-auto h-auto w-[clamp(150px,42vw,280px)] shrink-0 lg:mx-0 lg:justify-self-end"
+            className="mx-auto h-auto w-[clamp(150px,42vw,280px)] shrink-0 opacity-25 lg:mx-0 lg:justify-self-end"
           />
         </div>
       </section>
