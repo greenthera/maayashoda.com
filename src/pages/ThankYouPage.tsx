@@ -2,6 +2,7 @@ import { useLanguage } from "../i18n/LanguageProvider";
 import type { PageKey } from "../lib/paths";
 import { PageHead } from "../components/layout/PageHead";
 import { Button } from "../components/ui/Button";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
 import { ringStyle } from "../lib/decor";
 import type { Content } from "../content";
 
@@ -22,7 +23,9 @@ function ThankYouPage({ doc }: { doc: ThanksDoc }) {
               </svg>
             </span>
             <div className="flex flex-col gap-4">
-              <h1 className="text-ink text-[clamp(1.9rem,3.8vw,2.8rem)] font-bold leading-[1.1] tracking-[-0.03em]">{doc.h1}</h1>
+              <h1 className="text-ink text-[clamp(1.9rem,3.8vw,2.8rem)] font-bold leading-[1.1] tracking-[-0.03em]">
+                <AnimatedWords text={doc.h1} />
+              </h1>
               <p className="text-muted text-[18px] leading-relaxed">{doc.lead}</p>
             </div>
 

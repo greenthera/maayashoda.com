@@ -2,6 +2,7 @@ import { useLanguage } from "../i18n/LanguageProvider";
 import type { PageKey } from "../lib/paths";
 import { PageHead } from "../components/layout/PageHead";
 import { Button } from "../components/ui/Button";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
 import { ringStyle } from "../lib/decor";
 
 export default function NotFoundPage() {
@@ -19,7 +20,9 @@ export default function NotFoundPage() {
               <circle cx="254" cy="20" r="6" fill="#ea4885" />
             </svg>
             <div className="flex flex-col gap-3.5">
-              <h1 className="text-ink text-[clamp(1.9rem,3.8vw,2.8rem)] font-bold leading-[1.1] tracking-[-0.03em]">{t.notFound.h1}</h1>
+              <h1 className="text-ink text-[clamp(1.9rem,3.8vw,2.8rem)] font-bold leading-[1.1] tracking-[-0.03em]">
+                <AnimatedWords text={t.notFound.h1} />
+              </h1>
               <p className="text-muted text-[17.5px] leading-relaxed">{t.notFound.lead}</p>
             </div>
             <Button to={paths.home} className="self-start">

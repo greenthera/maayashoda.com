@@ -26,4 +26,6 @@ Scene prompts:
 
 ## Original project images
 
-`project/yashoda-maa.webp` is a WebP conversion of the supplied `src/assets/Yashoda Maa.png`, used on About. `project/original-van.webp` is a direct crop of its existing van at (355, 910, 920, 1145), used on Home and the van page. No AI recreation or invented details; the crop retains its native 565 × 235 resolution.
+`project/yashoda-maa.webp` is a WebP conversion of the supplied `src/assets/Yashoda Maa.png`, used on About.
+
+`project/van-cutout.webp` (1175 × 534) is the user-supplied van artwork with its background removed, used on Home and the van page. The user provided a branded side-view van illustration exported over a flattened checkerboard (no real alpha); the checkerboard was removed programmatically via a silhouette-hull mask and the van composited onto real transparency. The van illustration itself is AI-generated artwork supplied by the user — no details were added or altered here beyond the background cut. A soft `drop-shadow` is applied in CSS (`VanScene`) so the shadow tracks the van shape.

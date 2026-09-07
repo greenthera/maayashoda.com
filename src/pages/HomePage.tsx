@@ -7,20 +7,23 @@ import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
 import { StepList } from "../components/ui/StepList";
 import { Marquee } from "../components/ui/Marquee";
-import { ImageSlot } from "../components/ui/ImageSlot";
+import { GalleryLightbox } from "../components/ui/GalleryLightbox";
 import { Accordion } from "../components/ui/Accordion";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
+import { Reveal } from "../components/ui/Reveal";
+import { VanScene } from "../components/ui/VanScene";
 
 const GALLERY = [
-  { id: "gallery-1", src: `${import.meta.env.BASE_URL}images/moments/awareness-session-rich.webp`, label: "Awareness session", big: true },
-  { id: "gallery-2", src: `${import.meta.env.BASE_URL}images/moments/community-outreach-rich.webp`, label: "Community outreach", big: false },
-  { id: "gallery-3", src: `${import.meta.env.BASE_URL}images/moments/partner-engagement-rich.webp`, label: "Partner engagement", big: false },
-  { id: "gallery-4", src: `${import.meta.env.BASE_URL}images/moments/milk-bank-van-rich.webp`, label: "Milk bank van", big: false },
-  { id: "gallery-5", src: `${import.meta.env.BASE_URL}images/moments/team-at-work-rich.webp`, label: "Team at work", big: false },
+  { id: "gallery-1", src: `${import.meta.env.BASE_URL}images/moments/awareness-session-rich.webp`, label: "Awareness session" },
+  { id: "gallery-2", src: `${import.meta.env.BASE_URL}images/moments/community-outreach-rich.webp`, label: "Community outreach" },
+  { id: "gallery-3", src: `${import.meta.env.BASE_URL}images/moments/partner-engagement-rich.webp`, label: "Partner engagement" },
+  { id: "gallery-4", src: `${import.meta.env.BASE_URL}images/moments/milk-bank-van-rich.webp`, label: "Milk bank van" },
+  { id: "gallery-5", src: `${import.meta.env.BASE_URL}images/moments/team-at-work-rich.webp`, label: "Team at work" },
 ];
 
 export default function HomePage() {
   const { t, paths } = useLanguage();
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   const partnerNames = [t.partners.hostClub, ...t.partners.clubs, t.partners.health[0].n, t.partners.health[1].n, t.partners.impl.n];
 
@@ -57,9 +60,11 @@ export default function HomePage() {
           <span className="bg-brand-tint text-brand-strong inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.06em]">
             {t.grant.badge}
           </span>
-          <h1 className="text-ink max-w-[900px] text-[clamp(2.5rem,6vw,4.6rem)] font-bold leading-[1.03] tracking-[-0.04em]">{t.home.h1}</h1>
+          <h1 className="text-ink max-w-[900px] text-[clamp(2.5rem,6vw,4.6rem)] font-bold leading-[1.03] tracking-[-0.04em]">
+            <AnimatedWords text={t.home.h1} />
+          </h1>
           <p className="text-muted max-w-[620px] text-base leading-relaxed sm:text-[19px]">{t.home.heroLead}</p>
-          <div className="mt-1 flex w-full flex-col justify-center gap-3 min-[420px]:w-auto min-[420px]:flex-row min-[420px]:flex-wrap">
+          <div className="mt-1 flex w-full flex-col items-center justify-center gap-3 min-[420px]:w-auto min-[420px]:flex-row min-[420px]:flex-wrap">
             <Button to={paths.donor}>{t.cta.donor}</Button>
             <Button to={paths.about} variant="outline">
               {t.cta.learnProject}
@@ -79,9 +84,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1280px] px-4 pb-10 pt-4 sm:px-5 sm:pb-14 sm:pt-6">
           <Marquee>
             {partnerNames.map((name, i) => (
-              <div key={name} className="flex h-14 flex-none items-center gap-3 px-3">
-                <img src={partnerLogos[i]} alt="" className="h-10 w-14 flex-none object-contain" />
-                <span className="text-muted whitespace-nowrap text-[13px] font-semibold">{name}</span>
+              <div key={name} className="flex h-20 flex-none items-center justify-center px-8">
+                <img src={partnerLogos[i]} alt={name} className="h-14 w-auto max-w-[200px] flex-none object-contain" />
               </div>
             ))}
           </Marquee>
@@ -108,26 +112,27 @@ export default function HomePage() {
       </Section>
 
       <Section tone="surface">
-        <div className="mb-11 flex flex-col gap-3">
+        <div className="mx-auto mb-11 flex max-w-3xl flex-col items-center gap-3 text-center">
           <Eyebrow>{t.home.journeyEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.journeyTitle}</h2>
         </div>
         <StepList steps={t.home.journeySteps.map((label) => ({ label }))} />
-        <p className="text-muted card-shadow border-border mt-10 max-w-[760px] rounded-2xl border bg-paper px-5 py-4.5 text-[14.5px] leading-relaxed">
-          {t.home.journeyNote}
-        </p>
+        <div className="border-brand-tint-border mx-auto mt-10 flex max-w-[760px] flex-col items-center gap-4 rounded-3xl border bg-paper px-6 py-7 text-center shadow-sm sm:px-10">
+          <span aria-hidden="true" className="bg-brand-tint text-brand-strong grid h-11 w-11 place-items-center rounded-full">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6l-8-3Z"/><path d="m8 12 3 3 5-6"/></svg>
+          </span>
+          <p className="text-muted text-[15px] leading-relaxed">{t.home.journeyNote}</p>
+        </div>
       </Section>
 
       <Section>
-        <div className="grid grid-cols-1 items-center gap-11 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="border-border flex min-h-[240px] items-center justify-center overflow-hidden rounded-3xl border bg-white px-5 py-10 shadow-sm sm:min-h-[300px] sm:px-8">
-            <img src={`${import.meta.env.BASE_URL}images/project/original-van.webp`} alt="Complete milk bank van from the original Yashoda Maa artwork" width={565} height={235} className="block h-auto w-full max-w-[480px] object-contain" />
-          </div>
-          <div className="flex max-w-[560px] flex-col gap-5.5">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <VanScene animate className="py-4 sm:py-8" />
+          <div className="flex max-w-[560px] flex-col items-start gap-5">
             <Eyebrow>{t.home.vanEyebrow}</Eyebrow>
             <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.vanTitle}</h2>
             <p className="text-muted text-[17px] leading-[1.7]">{t.home.vanBody}</p>
-            <ul className="mt-1 flex flex-col gap-4.5">
+            <Reveal as="ul" className="border-border mt-1 flex w-full flex-col gap-4 border-t pt-5" step={45}>
               {t.home.vanPoints.map((p) => (
                 <li key={p.t} className="flex items-start gap-3.5">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ea4885" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-none" aria-hidden="true">
@@ -139,7 +144,7 @@ export default function HomePage() {
                   </span>
                 </li>
               ))}
-            </ul>
+            </Reveal>
             <Button to={paths.van} variant="outline" className="self-start">
               {t.cta.exploreVan}
             </Button>
@@ -168,20 +173,24 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <div className="mb-11 flex max-w-[640px] flex-col gap-3">
+        <div className="mb-7 flex max-w-[640px] flex-col gap-3">
           <Eyebrow>{t.home.partnersEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.partnersTitle}</h2>
           <p className="text-muted text-[17px] leading-[1.7]">{t.home.partnersLead}</p>
         </div>
-        <Marquee durationSeconds={45}>
+        <Marquee durationSeconds={45} gutterY={26}>
           {partnerNames.map((name, i) => (
-            <div key={name} className="border-border flex h-40 w-56 flex-none flex-col items-center justify-center gap-4 rounded-2xl border bg-white px-5 py-5 shadow-sm">
-              <img src={partnerLogos[i]} alt="" loading="lazy" className="h-16 w-32 object-contain" />
-              <span className="text-ink text-center text-[13px] font-semibold leading-snug">{name}</span>
+            <div key={name} className="border-border flex w-64 flex-none flex-col overflow-hidden rounded-[20px] border bg-white shadow-[0_10px_30px_-10px_rgba(32,24,89,0.22)]">
+              <div className="flex h-18.5 items-center justify-center px-6">
+                <img src={partnerLogos[i]} alt="" loading="lazy" className="max-h-14 w-auto max-w-50 object-contain" />
+              </div>
+              <span className="text-ink border-border flex min-h-13 flex-1 items-center justify-center border-t bg-surface-1 px-3 py-2.5 text-center text-[12.5px] font-semibold leading-snug">
+                {name}
+              </span>
             </div>
           ))}
         </Marquee>
-        <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
           <p className="text-faint max-w-[560px] text-[13px]">{t.partners.approvalNote}</p>
           <Button to={paths.partners} variant="text" arrow>
             {t.cta.meetPartners}
@@ -195,45 +204,21 @@ export default function HomePage() {
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.galleryTitle}</h2>
           <p className="text-muted text-[17px] leading-[1.7]">{t.home.galleryLead}</p>
         </div>
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[182px]">
-          {GALLERY.map((g) => (
-            <li key={g.id} className={`border-border card-shadow relative min-h-[200px] overflow-hidden rounded-[22px] border bg-surface-2 ${g.big ? "sm:col-span-2 sm:row-span-2 min-h-[380px]" : ""}`}>
-              <ImageSlot src={g.src} label={g.label} className="h-full" />
-              <button
-                type="button"
-                onClick={() => setLightbox(g.id)}
-                aria-label={`Open ${g.label} illustration`}
-                className="border-border card-shadow absolute bottom-3 right-3 z-10 grid h-10 w-10 place-items-center rounded-xl border bg-paper/90 hover:border-brand"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#201859" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" />
-                </svg>
+        <Reveal as="ul" className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-5" step={70}>
+          {GALLERY.map((g, index) => (
+            <li key={g.id} className={index < 2 ? "lg:col-span-3" : "lg:col-span-2"}>
+              <button type="button" onClick={() => setLightbox(index)} aria-label={`Open ${g.label} illustration`}
+                className="group border-border relative block aspect-[3/2] w-full overflow-hidden rounded-2xl border bg-surface-2 text-left shadow-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand">
+                <img src={g.src} alt={g.label} width={1536} height={1024} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
+                <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/75 to-transparent px-5 pb-5 pt-14 text-white">
+                  <span className="text-sm font-semibold sm:text-base">{g.label}</span>
+                  <span aria-hidden="true" className="grid h-9 w-9 flex-none place-items-center rounded-full border border-white/40 bg-white/15 text-lg">↗</span>
+                </span>
               </button>
             </li>
           ))}
-        </ul>
-        {lightbox ? (
-          <div
-            role="dialog"
-            aria-modal="true"
-            onClick={() => setLightbox(null)}
-            className="bg-ink/82 fixed inset-0 z-[90] grid place-items-center p-8 backdrop-blur-sm"
-          >
-            <button
-              type="button"
-              onClick={() => setLightbox(null)}
-              aria-label="Close"
-              className="absolute right-5.5 top-5.5 grid h-11 w-11 place-items-center rounded-xl border border-white/30"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fdfdfd" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-                <path d="M6 6l12 12M18 6L6 18" />
-              </svg>
-            </button>
-            <div className="h-[min(720px,78vh)] w-[min(1100px,88vw)]">
-              <ImageSlot src={GALLERY.find((g) => g.id === lightbox)?.src} label={GALLERY.find((g) => g.id === lightbox)?.label ?? ""} fit="contain" className="h-full rounded-[20px]" />
-            </div>
-          </div>
-        ) : null}
+        </Reveal>
+        {lightbox !== null ? <GalleryLightbox images={GALLERY} index={lightbox} onChange={setLightbox} onClose={() => setLightbox(null)} /> : null}
       </Section>
 
       <Section tone="ink">
@@ -241,14 +226,14 @@ export default function HomePage() {
           <Eyebrow>{t.home.statsEyebrow}</Eyebrow>
           <h2 className="text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em] text-paper">{t.home.statsTitle}</h2>
         </div>
-        <dl className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal as="dl" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4" step={80}>
           {t.home.stats.map((s) => (
             <div key={s.l} className="flex flex-col gap-2 border-t border-white/20 pt-5">
               <dt className="order-2 text-[15px] leading-snug text-[#cfc8d9]">{s.l}</dt>
               <dd className="order-1 m-0 text-[clamp(2.4rem,4.4vw,3.4rem)] font-bold leading-none tracking-[-0.03em] text-paper">{s.v}</dd>
             </div>
           ))}
-        </dl>
+        </Reveal>
         <div className="mt-10 flex flex-col gap-2">
           <p className="text-faint text-[13.5px] font-semibold">{t.home.statsUpdated}</p>
           <p className="text-faint max-w-[720px] text-[13px] leading-relaxed">{t.home.statsNote}</p>
@@ -260,7 +245,7 @@ export default function HomePage() {
           <Eyebrow>{t.home.involvedEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.involvedTitle}</h2>
         </div>
-        <ul className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+        <Reveal as="ul" className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {t.home.involved.map((c, i) => {
             const meta = involvedMeta[i];
             return (
@@ -278,7 +263,7 @@ export default function HomePage() {
               </li>
             );
           })}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section tone="tint" border="top">

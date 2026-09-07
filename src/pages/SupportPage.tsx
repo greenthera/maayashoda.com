@@ -4,6 +4,8 @@ import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
 import { StepList } from "../components/ui/StepList";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
+import { Reveal } from "../components/ui/Reveal";
 import { ringStyle } from "../lib/decor";
 
 export default function SupportPage() {
@@ -18,7 +20,9 @@ export default function SupportPage() {
         <div className="mx-auto max-w-[1280px] px-4 pb-14 pt-12 sm:px-5 sm:pb-20 sm:pt-18">
           <div className="flex max-w-[780px] flex-col gap-5.5">
             <Eyebrow>{t.support.eyebrow}</Eyebrow>
-            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">{t.support.h1}</h1>
+            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">
+              <AnimatedWords text={t.support.h1} />
+            </h1>
             <p className="text-muted max-w-[680px] text-base leading-relaxed sm:text-[18.5px]">{t.support.lead}</p>
             <Button href="#ways" variant="outline" className="mt-1.5 self-start">
               {t.cta.exploreWays}
@@ -42,14 +46,14 @@ export default function SupportPage() {
           <Eyebrow>{t.support.areasEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.support.areasTitle}</h2>
         </div>
-        <ul className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal as="ul" className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3">
           {t.support.areas.map((a) => (
             <li key={a.t} className="card-shadow flex flex-col gap-2 rounded-[18px] bg-paper p-5 sm:p-6">
               <span className="text-ink text-[16.5px] font-semibold">{a.t}</span>
               <span className="text-muted text-[14.5px] leading-[1.65]">{a.d}</span>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section id="ways">
@@ -57,7 +61,7 @@ export default function SupportPage() {
           <Eyebrow>{t.support.waysEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.support.waysTitle}</h2>
         </div>
-        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal as="ul" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {t.support.ways.map((w, i) => (
             <li key={w.t} className="card-shadow border-border flex flex-col gap-3 rounded-[18px] border p-5 sm:rounded-[20px] sm:p-7">
               <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{`0${i + 1}`}</span>
@@ -65,7 +69,7 @@ export default function SupportPage() {
               <span className="text-muted text-[15px] leading-[1.65]">{w.d}</span>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section tone="tint" border="both">

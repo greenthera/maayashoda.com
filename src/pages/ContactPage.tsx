@@ -3,6 +3,7 @@ import { PageHead } from "../components/layout/PageHead";
 import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
 import { EnquiryForm } from "../components/forms/EnquiryForm";
 import { ringStyle } from "../lib/decor";
 
@@ -31,7 +32,9 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1280px] px-4 pb-14 pt-12 sm:px-5 sm:pb-18 sm:pt-18">
           <div className="flex max-w-[720px] flex-col gap-5">
             <Eyebrow>{t.contact.eyebrow}</Eyebrow>
-            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">{t.contact.h1}</h1>
+            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">
+              <AnimatedWords text={t.contact.h1} />
+            </h1>
             <p className="text-muted max-w-[620px] text-base leading-relaxed sm:text-[18.5px]">{t.contact.lead}</p>
           </div>
         </div>

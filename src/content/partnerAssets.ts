@@ -1,10 +1,10 @@
 /** Tightly framed copies of the supplied PDF artwork, in translated content order. */
-export const hostClubLogo = `${import.meta.env.BASE_URL}images/partners/rotary-surat-riverside-page-1.webp`;
+export const hostClubLogo = `${import.meta.env.BASE_URL}images/partners/rotary-surat-riverside.webp`;
 export const participatingClubLogos = [
-  `${import.meta.env.BASE_URL}images/partners/rotary-udhna-page-1.webp`,
-  `${import.meta.env.BASE_URL}images/partners/tapi-page-1.webp`,
-  `${import.meta.env.BASE_URL}images/partners/sachin-page-1.webp`,
-  `${import.meta.env.BASE_URL}images/partners/seaface-page-1.webp`,
+  `${import.meta.env.BASE_URL}images/partners/rotary-udhna.webp`,
+  `${import.meta.env.BASE_URL}images/partners/rotary-tapi.webp`,
+  `${import.meta.env.BASE_URL}images/partners/rotary-sachin.webp`,
+  `${import.meta.env.BASE_URL}images/partners/rotary-surat-seaface.webp`,
 ];
 export const collegeLogo = `${import.meta.env.BASE_URL}images/partners/government-medical-college.webp`;
 export const healthcareLogo = `${import.meta.env.BASE_URL}images/partners/new-civil-hospital.webp`;

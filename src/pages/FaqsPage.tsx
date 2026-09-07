@@ -4,6 +4,7 @@ import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
 import { Accordion } from "../components/ui/Accordion";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
 import { ringStyle } from "../lib/decor";
 
 export default function FaqsPage() {
@@ -18,7 +19,9 @@ export default function FaqsPage() {
         <div className="mx-auto max-w-[1280px] px-5 pb-18 pt-18">
           <div className="flex max-w-[760px] flex-col gap-5">
             <Eyebrow>{t.faqs.eyebrow}</Eyebrow>
-            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">{t.faqs.h1}</h1>
+            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">
+              <AnimatedWords text={t.faqs.h1} />
+            </h1>
             <p className="text-muted max-w-[680px] text-[18px] leading-relaxed">{t.faqs.lead}</p>
           </div>
         </div>

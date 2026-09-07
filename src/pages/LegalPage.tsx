@@ -2,6 +2,7 @@ import { useLanguage } from "../i18n/LanguageProvider";
 import { PageHead } from "../components/layout/PageHead";
 import { Section } from "../components/ui/Section";
 import { Button } from "../components/ui/Button";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
 import { ringStyle } from "../lib/decor";
 import type { Content } from "../content";
 
@@ -18,7 +19,9 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
       <section className="bg-surface-1 border-border animate-fade-up border-b" style={ringStyle()}>
         <div className="mx-auto max-w-[1280px] px-5 pb-14 pt-16">
           <div className="flex max-w-[680px] flex-col gap-3.5">
-            <h1 className="text-ink text-[clamp(1.9rem,3.8vw,2.9rem)] font-bold leading-[1.1] tracking-[-0.03em]">{doc.h1}</h1>
+            <h1 className="text-ink text-[clamp(1.9rem,3.8vw,2.9rem)] font-bold leading-[1.1] tracking-[-0.03em]">
+              <AnimatedWords text={doc.h1} />
+            </h1>
             <p className="text-faint text-sm font-medium">{doc.updated}</p>
             {doc.note ? (
               <p className="card-shadow border-border mt-1.5 rounded-2xl border bg-paper px-4.5 py-4 text-[14.5px] leading-[1.65] text-muted">{doc.note}</p>

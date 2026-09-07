@@ -3,6 +3,9 @@ import { PageHead } from "../components/layout/PageHead";
 import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
+import { Reveal } from "../components/ui/Reveal";
+import { VanScene } from "../components/ui/VanScene";
 import { ringStyle } from "../lib/decor";
 import { StepList } from "../components/ui/StepList";
 
@@ -17,12 +20,12 @@ export default function VanPage() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-11 px-5 pb-18 pt-16 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="flex max-w-[620px] flex-col gap-5.5">
             <Eyebrow>{t.van.eyebrow}</Eyebrow>
-            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">{t.van.h1}</h1>
+            <h1 className="text-ink text-[clamp(2.1rem,4.4vw,3.4rem)] font-bold leading-[1.07] tracking-[-0.035em]">
+              <AnimatedWords text={t.van.h1} />
+            </h1>
             <p className="text-muted text-[18px] leading-relaxed">{t.van.lead}</p>
           </div>
-          <div className="border-border flex min-h-[240px] items-center justify-center overflow-hidden rounded-3xl border bg-white px-5 py-10 shadow-sm sm:min-h-[300px] sm:px-8">
-            <img src={`${import.meta.env.BASE_URL}images/project/original-van.webp`} alt="Complete milk bank van from the original Yashoda Maa artwork" width={565} height={235} className="block h-auto w-full max-w-[480px] object-contain" />
-          </div>
+          <VanScene className="py-6 sm:py-10" />
         </div>
       </section>
 
@@ -50,14 +53,14 @@ export default function VanPage() {
           <Eyebrow>{t.van.outreachEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.van.outreachTitle}</h2>
         </div>
-        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal as="ul" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {t.van.outreachPoints.map((p) => (
             <li key={p.t} className="card-shadow border-border flex flex-col gap-2.5 rounded-[20px] border bg-paper p-6.5">
               <span className="text-ink text-[17px] font-semibold">{p.t}</span>
               <span className="text-muted text-[15px] leading-[1.65]">{p.d}</span>
             </li>
           ))}
-        </ul>
+        </Reveal>
         <p className="text-faint mt-6.5 max-w-[640px] text-[13.5px] leading-relaxed">{t.van.outreachNote}</p>
       </Section>
 
@@ -66,7 +69,7 @@ export default function VanPage() {
           <Eyebrow>{t.van.roleEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.van.roleTitle}</h2>
         </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <Reveal className="grid grid-cols-1 gap-5 sm:grid-cols-2" step={90}>
           <div className="bg-surface-2 card-shadow flex flex-col gap-3 rounded-[22px] p-8">
             <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">01</span>
             <span className="text-ink text-xl font-semibold">{t.van.roleBank.t}</span>
@@ -77,7 +80,7 @@ export default function VanPage() {
             <span className="text-ink text-xl font-semibold">{t.van.roleVan.t}</span>
             <span className="text-brand-soft text-[15.5px] leading-[1.7]">{t.van.roleVan.d}</span>
           </div>
-        </div>
+        </Reveal>
         <p className="text-ink mt-6 text-[14.5px] font-medium">{t.van.roleNote}</p>
       </Section>
 

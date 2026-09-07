@@ -3,7 +3,8 @@ import { PageHead } from "../components/layout/PageHead";
 import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
-import { ImageSlot } from "../components/ui/ImageSlot";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
+import { Reveal } from "../components/ui/Reveal";
 import { ringStyle } from "../lib/decor";
 
 export default function AboutPage() {
@@ -14,14 +15,29 @@ export default function AboutPage() {
       <PageHead title={t.about.title} />
 
       <section className="bg-surface-1 border-border animate-fade-up border-b" style={ringStyle()}>
-        <div className="mx-auto max-w-[1280px] px-5 pb-20 pt-18">
-          <div className="flex max-w-[780px] flex-col gap-5.5">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-11 px-5 pb-16 pt-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+          <div className="flex max-w-[620px] flex-col items-start gap-5.5">
             <Eyebrow>{t.about.eyebrow}</Eyebrow>
-            <h1 className="text-ink text-[clamp(2.2rem,4.6vw,3.6rem)] font-bold leading-[1.06] tracking-[-0.035em]">{t.about.h1}</h1>
-            <p className="text-muted max-w-[680px] text-[18.5px] leading-relaxed">{t.about.lead}</p>
+            <h1 className="text-ink text-[clamp(2.2rem,4.6vw,3.6rem)] font-bold leading-[1.06] tracking-[-0.035em]">
+              <AnimatedWords text={t.about.h1} />
+            </h1>
+            <p className="text-muted text-[18px] leading-relaxed">{t.about.lead}</p>
+            <Reveal as="ul" className="mt-1 flex flex-wrap gap-2.5" step={70}>
+              {t.about.approach.map((p) => (
+                <li key={p.t} className="border-border-strong text-ink rounded-full border bg-paper/70 px-4 py-2 text-[13.5px] font-medium">
+                  {p.t}
+                </li>
+              ))}
+            </Reveal>
           </div>
-          <div className="border-border bg-white mt-10 h-[380px] sm:h-[480px] w-full overflow-hidden rounded-[28px] border">
-            <ImageSlot src={`${import.meta.env.BASE_URL}images/project/yashoda-maa.webp`} fit="contain" label="Yashoda Maa — bridge between donor mothers and babies" className="h-full" />
+          <div className="border-border card-shadow mx-auto flex w-full max-w-[440px] items-center justify-center overflow-hidden rounded-[28px] border bg-white p-6 sm:p-8">
+            <img
+              src={`${import.meta.env.BASE_URL}images/project/yashoda-maa.webp`}
+              alt="Yashoda Maa — bridge between donor mothers and babies"
+              width={720}
+              height={720}
+              className="block h-auto w-full object-contain"
+            />
           </div>
         </div>
       </section>
@@ -47,14 +63,14 @@ export default function AboutPage() {
           <Eyebrow>{t.about.challengeEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.about.challengeTitle}</h2>
         </div>
-        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal as="ul" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {t.about.challenges.map((c) => (
             <li key={c.t} className="card-shadow border-border flex flex-col gap-2.5 rounded-[20px] border bg-paper p-6.5">
               <span className="text-ink text-[17px] font-semibold">{c.t}</span>
               <span className="text-muted text-[15px] leading-[1.65]">{c.d}</span>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section>
@@ -62,7 +78,7 @@ export default function AboutPage() {
           <Eyebrow>{t.about.approachEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.about.approachTitle}</h2>
         </div>
-        <ul className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal as="ul" className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-3">
           {t.about.approach.map((p, i) => (
             <li key={p.t} className="flex flex-col gap-3">
               <span className="bg-brand-tint grid h-11 w-11 place-items-center rounded-[13px]">
@@ -72,7 +88,7 @@ export default function AboutPage() {
               <span className="text-muted text-[15.5px] leading-[1.65]">{p.d}</span>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section tone="tint" border="both">
@@ -82,14 +98,14 @@ export default function AboutPage() {
             <h2 className="text-ink max-w-[420px] text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.about.objTitle}</h2>
             <p className="text-faint max-w-[420px] text-[13.5px] leading-relaxed">{t.about.objNote}</p>
           </div>
-          <ol className="flex max-w-[640px] flex-col">
+          <Reveal as="ol" className="flex max-w-[640px] flex-col" step={45}>
             {t.about.objectives.map((text, i) => (
               <li key={text} className="border-border flex items-start gap-4.5 border-b py-4.5">
                 <span className="text-brand min-w-[22px] flex-none pt-0.5 text-[13px] font-semibold">{`0${i + 1}`}</span>
                 <span className="text-ink text-[16.5px] leading-relaxed">{text}</span>
               </li>
             ))}
-          </ol>
+          </Reveal>
         </div>
       </Section>
 
@@ -121,14 +137,14 @@ export default function AboutPage() {
           </div>
           <div className="flex max-w-[620px] flex-col gap-5.5">
             <p className="text-muted text-[17px] leading-[1.7]">{t.about.ecoBody}</p>
-            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <Reveal as="ul" className="grid grid-cols-1 gap-3 sm:grid-cols-2" step={70}>
               {t.partners.eco.map((e) => (
                 <li key={e.t} className="card-shadow border-border flex flex-col gap-1.5 rounded-2xl border px-5 py-4.5">
                   <span className="text-ink text-[15.5px] font-semibold">{e.t}</span>
                   <span className="text-muted text-sm leading-relaxed">{e.d}</span>
                 </li>
               ))}
-            </ul>
+            </Reveal>
           </div>
         </div>
       </Section>

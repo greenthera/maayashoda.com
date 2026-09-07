@@ -4,6 +4,7 @@ import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
 import { Accordion } from "../components/ui/Accordion";
+import { AnimatedWords } from "../components/ui/AnimatedWords";
 import { EnquiryForm } from "../components/forms/EnquiryForm";
 
 export default function DonorPage() {
@@ -20,7 +21,9 @@ export default function DonorPage() {
             <div className="flex flex-col gap-7 sm:gap-9">
               <div className="flex flex-col gap-5">
                 <Eyebrow>{t.donor.eyebrow}</Eyebrow>
-                <h1 className="text-ink text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.035em]">{t.donor.h1}</h1>
+                <h1 className="text-ink text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.035em]">
+                  <AnimatedWords text={t.donor.h1} />
+                </h1>
                 <p className="text-muted max-w-[520px] text-base leading-[1.7] sm:text-[17.5px]">{t.donor.lead}</p>
                 <p className="bg-brand-tint card-shadow text-brand-soft flex max-w-[520px] items-start gap-3 rounded-2xl px-4 py-4 text-[15px] font-medium leading-snug sm:gap-3.5 sm:px-5 sm:py-4.5 sm:text-[15.5px]">
                   <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#c02f68" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-none" aria-hidden="true">

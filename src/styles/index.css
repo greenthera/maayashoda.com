@@ -119,6 +119,38 @@ span {
     0 10px 26px rgb(32 24 89 / 0.06);
 }
 
+/* Idle bob for the Human Milk Bank Van on the homepage (see VanScene). */
+@keyframes van-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.animate-van-bob {
+  animation: van-bob 4.5s ease-in-out infinite;
+}
+
+/* Word-by-word heading reveal on load (see AnimatedWords). */
+@keyframes word-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.42em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-words > span {
+  display: inline-block;
+  animation: word-rise 0.62s cubic-bezier(0.22, 0.7, 0.2, 1) both;
+  animation-delay: var(--word-delay, 0ms);
+  will-change: transform;
+}
+
 /* Vertical/horizontal connector line used by step-flow lists */
 .step-connector {
   position: relative;

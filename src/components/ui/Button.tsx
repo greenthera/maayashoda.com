@@ -3,7 +3,7 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 type Variant = "primary" | "outline" | "outline-invert" | "text";
 
-const base = "inline-flex max-w-full items-center justify-center gap-2.5 rounded-xl text-center font-semibold leading-snug transition-colors";
+const base = "inline-flex w-fit max-w-full items-center justify-center gap-2.5 rounded-xl text-center font-semibold leading-snug transition-colors";
 
 const variants: Record<Variant, string> = {
   primary: "min-h-[52px] px-5 sm:min-h-[54px] sm:px-6 bg-brand text-paper text-[15.5px] hover:bg-brand-hover hover:-translate-y-px",
