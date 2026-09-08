@@ -74,7 +74,7 @@ export default function HomePage() {
                 <span aria-hidden="true" className="bg-brand h-1.5 w-1.5 rounded-full" />
                 {t.grant.number}
               </span>
-              <Button to={paths.partners} variant="outline" arrow className="min-h-12 rounded-xl! text-[13.5px]">
+              <Button to={paths.partners} variant="text" arrow className="text-[13.5px]">
                 {t.cta.meetPartners}
               </Button>
             </div>

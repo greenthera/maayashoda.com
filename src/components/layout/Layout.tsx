@@ -19,8 +19,8 @@ export function Layout() {
       </a>
       <div className="bg-brand">
         <div className="mx-auto flex h-9 max-w-[1280px] items-center justify-between gap-3 px-4 sm:px-5">
-          <span className="text-ink/85 text-[11.5px] font-semibold uppercase tracking-[0.08em]">Follow the initiative</span>
-          <SocialLinks size={16} linkClass="text-white hover:bg-white/15" />
+          <span className="text-white text-[11.5px] font-semibold uppercase tracking-[0.08em]">Follow the initiative</span>
+          <SocialLinks size={16} className="-mr-1.5" linkClass="text-white hover:bg-white/15" />
         </div>
       </div>
       <Header />
