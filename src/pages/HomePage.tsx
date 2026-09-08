@@ -40,48 +40,55 @@ export default function HomePage() {
       <PageHead title={t.home.title} />
 
       <section className="bg-paper border-border animate-fade-up relative overflow-hidden border-b">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-[-10%] -top-[18%] grid h-[940px] place-items-center"
-        >
-          <svg viewBox="0 0 1200 900" className="h-full w-full" role="presentation">
-            <g fill="none" stroke="#ea4885" strokeOpacity="0.06">
-              <circle cx="600" cy="470" r="200" />
-              <circle cx="600" cy="470" r="300" />
-              <circle cx="600" cy="470" r="400" />
-              <circle cx="600" cy="470" r="500" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-[14%] -top-[42%] hidden aspect-square w-[760px] lg:block">
+          <svg viewBox="0 0 800 800" className="h-full w-full" role="presentation">
+            <g fill="none" stroke="#ea4885" strokeOpacity="0.07">
+              <circle cx="400" cy="400" r="200" />
+              <circle cx="400" cy="400" r="300" />
+              <circle cx="400" cy="400" r="390" />
             </g>
-            <g className="animate-pulse-ring" style={{ transformOrigin: "600px 470px" }}>
-              <circle cx="600" cy="470" r="300" fill="none" stroke="#ea4885" strokeWidth="1.2" strokeOpacity="0.45" />
+            <g className="animate-pulse-ring" style={{ transformOrigin: "400px 400px" }}>
+              <circle cx="400" cy="400" r="250" fill="none" stroke="#ea4885" strokeWidth="1.2" strokeOpacity="0.4" />
             </g>
           </svg>
         </div>
-        <div className="relative mx-auto flex max-w-[1000px] flex-col items-center gap-5 px-4 pb-9 pt-14 text-center sm:gap-6 sm:px-5 sm:pb-10 sm:pt-20">
-          <span className="bg-brand-tint text-brand-strong inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.06em]">
-            {t.grant.badge}
-          </span>
-          <h1 className="text-ink max-w-[900px] text-[clamp(2.5rem,6vw,4.6rem)] font-bold leading-[1.03] tracking-[-0.04em]">
-            <AnimatedWords text={t.home.h1} />
-          </h1>
-          <p className="text-muted max-w-[620px] text-base leading-relaxed sm:text-[19px]">{t.home.heroLead}</p>
-          <div className="mt-1 flex w-full flex-col items-center justify-center gap-3 min-[420px]:w-auto min-[420px]:flex-row min-[420px]:flex-wrap">
-            <Button to={paths.donor}>{t.cta.donor}</Button>
-            <Button to={paths.about} variant="outline">
-              {t.cta.learnProject}
-            </Button>
-          </div>
-          <div className="mt-1.5 flex flex-col items-center gap-2.5">
-            <span className="text-faint max-w-[560px] text-[13.5px] leading-relaxed">{t.home.heroCollab}</span>
-            <Button to={paths.partners} variant="text" arrow>
-              {t.cta.meetPartners}
-            </Button>
-            <span className="text-[#b0a7c2] inline-flex items-center gap-2 text-xs tracking-wide">
-              <span aria-hidden="true" className="bg-border-strong h-[5px] w-[5px] rounded-full" />
-              <span>{t.grant.number}</span>
+
+        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-9 px-4 pb-8 pt-10 sm:px-5 sm:pt-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:pb-10 lg:pt-16">
+          <div className="flex flex-col items-start gap-5 max-lg:items-center max-lg:text-center">
+            <span className="bg-brand-tint text-brand-strong inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.06em]">
+              {t.grant.badge}
             </span>
+            <h1 className="text-ink text-[clamp(2.3rem,4.9vw,4rem)] font-bold leading-[1.05] tracking-[-0.035em]">
+              <AnimatedWords text={t.home.h1} />
+            </h1>
+            <p className="text-muted max-w-[540px] text-[17px] leading-relaxed sm:text-[18.5px]">{t.home.heroLead}</p>
+            <div className="mt-1 flex flex-wrap gap-3 max-lg:justify-center">
+              <Button to={paths.donor}>{t.cta.donor}</Button>
+              <Button to={paths.about} variant="outline">
+                {t.cta.learnProject}
+              </Button>
+            </div>
+            <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 max-lg:justify-center">
+              <span className="text-faint text-[12.5px] tracking-wide">{t.grant.number}</span>
+              <span aria-hidden="true" className="bg-border-strong h-[4px] w-[4px] rounded-full" />
+              <Button to={paths.partners} variant="text" arrow className="text-[13.5px]">
+                {t.cta.meetPartners}
+              </Button>
+            </div>
+          </div>
+
+          <div className="order-first flex justify-center lg:order-none lg:justify-end">
+            <img
+              src={`${import.meta.env.BASE_URL}images/project/yashoda-maa-mark.webp`}
+              alt="Maa Yashoda — Human Milk Bank on Wheels"
+              width={440}
+              height={444}
+              className="h-auto w-[clamp(210px,46vw,440px)]"
+            />
           </div>
         </div>
-        <div className="mx-auto max-w-[1280px] px-4 pb-10 pt-4 sm:px-5 sm:pb-14 sm:pt-6">
+
+        <div className="relative mx-auto max-w-[1280px] px-4 pb-9 pt-3 sm:px-5 sm:pb-12 sm:pt-5">
           <Marquee>
             {partnerNames.map((name, i) => (
               <div key={name} className="flex h-20 flex-none items-center justify-center px-8">

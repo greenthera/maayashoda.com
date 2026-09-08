@@ -26,6 +26,8 @@ Scene prompts:
 
 ## Original project images
 
-`project/yashoda-maa.webp` is a WebP conversion of the supplied `src/assets/Yashoda Maa.png`, used on About.
+`project/yashoda-maa.webp` is a WebP conversion of the supplied `src/assets/Yashoda Maa.png`, used on About. `project/yashoda-maa-mark.webp` is the same supplied logo with its outer white flood-filled to transparency (interior fill and all detail unchanged), used as the Home hero mark.
+
+`team/prashant-kariya.webp` is the user-supplied photo of Dr. Prashant Kariya (primary project contact), resized to 600 × 600 and converted to WebP; shown on the Contact page.
 
 `project/van-cutout.webp` (1175 × 534) is the user-supplied van artwork with its background removed, used on Home and the van page. The user provided a branded side-view van illustration exported over a flattened checkerboard (no real alpha); the checkerboard was removed programmatically via a silhouette-hull mask and the van composited onto real transparency. The van illustration itself is AI-generated artwork supplied by the user — no details were added or altered here beyond the background cut. A soft `drop-shadow` is applied in CSS (`VanScene`) so the shadow tracks the van shape.

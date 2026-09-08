@@ -86,9 +86,23 @@ export default function ContactPage() {
               <p className="text-faint text-[13px] leading-relaxed">{t.contact.optionsNote}</p>
             </div>
 
-            <div className="card-shadow border-border flex flex-col gap-2 rounded-[18px] border bg-paper p-5 sm:rounded-[20px] sm:p-6.5">
+            <div className="card-shadow border-border flex flex-col gap-4 rounded-[18px] border bg-paper p-5 sm:rounded-[20px] sm:p-6.5">
               <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.contact.primaryContactLabel}</span>
-              <span className="text-ink text-[21px] font-bold tracking-[-0.02em]">{t.contact.primaryContactName}</span>
+              <div className="flex items-center gap-4">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/team/prashant-kariya.webp`}
+                  alt={t.contact.primaryContactName}
+                  width={72}
+                  height={72}
+                  className="border-border h-18 w-18 flex-none rounded-full border object-cover"
+                />
+                <div className="flex flex-col gap-1">
+                  <span className="text-ink text-[19px] font-bold tracking-[-0.02em]">{t.contact.primaryContactName}</span>
+                  <a href={`mailto:${t.contact.primaryContactEmail}`} className="text-brand hover:text-brand-hover text-[14px] font-semibold break-all">
+                    {t.contact.primaryContactEmail}
+                  </a>
+                </div>
+              </div>
               <span className="text-faint text-[13.5px] leading-relaxed">{t.contact.primaryContactNote}</span>
             </div>
 

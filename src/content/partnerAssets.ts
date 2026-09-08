@@ -1,14 +1,28 @@
-/** Tightly framed copies of the supplied PDF artwork, in translated content order. */
-export const hostClubLogo = `${import.meta.env.BASE_URL}images/partners/rotary-surat-riverside.webp`;
+/** Partner logo assets, in the same order as their names in the translated content. */
+const P = `${import.meta.env.BASE_URL}images/partners/`;
+
+export const hostClubLogo = `${P}rotary-surat-riverside.webp`;
 export const participatingClubLogos = [
-  `${import.meta.env.BASE_URL}images/partners/rotary-udhna.webp`,
-  `${import.meta.env.BASE_URL}images/partners/rotary-tapi.webp`,
-  `${import.meta.env.BASE_URL}images/partners/rotary-sachin.webp`,
-  `${import.meta.env.BASE_URL}images/partners/rotary-surat-seaface.webp`,
+  `${P}rotary-udhna.webp`,
+  `${P}rotary-tapi.webp`,
+  `${P}rotary-sachin.webp`,
+  `${P}rotary-surat-seaface.webp`,
+  `${P}rotary-shades-valley.webp`,
 ];
-export const collegeLogo = `${import.meta.env.BASE_URL}images/partners/government-medical-college.webp`;
-export const healthcareLogo = `${import.meta.env.BASE_URL}images/partners/new-civil-hospital.webp`;
+export const districtLogos = [`${P}rotary-district-3060.webp`, `${P}rotary-district-3142.webp`, `${P}rotary-district-6860.webp`];
+
+export const collegeLogo = `${P}government-medical-college.webp`;
+export const healthcareLogo = `${P}new-civil-hospital.webp`;
 // Paediatrics uses the authentic logo of its parent institution, GMC Surat.
 export const healthcareImages = [collegeLogo, healthcareLogo, collegeLogo];
-export const implementationLogo = `${import.meta.env.BASE_URL}images/partners/chhanyado.webp`;
+
+export const implementationLogo = `${P}chhanyado.webp`;
+
+export const associationLogos = [
+  implementationLogo,
+  `${P}surat-pediatric-association.webp`,
+  `${P}academy-of-pediatrics-gujarat.webp`,
+  `${P}indian-academy-of-pediatrics.webp`,
+];
+
 export const partnerLogos = [hostClubLogo, ...participatingClubLogos, collegeLogo, healthcareLogo, implementationLogo];

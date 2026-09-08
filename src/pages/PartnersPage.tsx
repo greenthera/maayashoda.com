@@ -1,4 +1,4 @@
-import { hostClubLogo, participatingClubLogos, healthcareImages, implementationLogo } from "../content/partnerAssets";
+import { hostClubLogo, participatingClubLogos, districtLogos, healthcareImages, associationLogos } from "../content/partnerAssets";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { PageHead } from "../components/layout/PageHead";
 import { Section } from "../components/ui/Section";
@@ -69,7 +69,7 @@ export default function PartnersPage() {
 
           <div className="flex flex-col gap-4">
             <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.partners.participatingLabel}</span>
-            <Reveal as="ul" className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 lg:grid-cols-4">
+            <Reveal as="ul" className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {t.partners.clubs.map((name, index) => (
                 <li
                   key={name}
@@ -77,6 +77,23 @@ export default function PartnersPage() {
                 >
                   <div className="flex h-20 items-center justify-center px-6">
                     <img src={participatingClubLogos[index]} alt={name} className="max-h-14 w-auto max-w-42.5 object-contain" />
+                  </div>
+                  <span className="text-ink border-border flex min-h-15 flex-1 items-center justify-center border-t bg-surface-1 px-4 py-4 text-center text-[14.5px] font-semibold leading-snug">{name}</span>
+                </li>
+              ))}
+            </Reveal>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.partners.districtsLabel}</span>
+            <Reveal as="ul" className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-3">
+              {t.partners.districts.map((name, index) => (
+                <li
+                  key={name}
+                  className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white text-center hover:-translate-y-1"
+                >
+                  <div className="flex h-20 items-center justify-center px-6">
+                    <img src={districtLogos[index]} alt={name} className="max-h-14 w-auto max-w-42.5 object-contain" />
                   </div>
                   <span className="text-ink border-border flex min-h-15 flex-1 items-center justify-center border-t bg-surface-1 px-4 py-4 text-center text-[14.5px] font-semibold leading-snug">{name}</span>
                 </li>
@@ -117,22 +134,26 @@ export default function PartnersPage() {
               </li>
             ))}
           </Reveal>
+
+          <div className="flex flex-col gap-5">
+            <h3 className="text-ink text-[clamp(1.35rem,2.4vw,1.8rem)] font-bold leading-[1.2] tracking-[-0.02em]">{t.partners.assocTitle}</h3>
+            <Reveal as="ul" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {t.partners.assoc.map((a, index) => (
+                <li key={a.n} className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white hover:-translate-y-1">
+                  <div className="flex h-32 items-center justify-center bg-white p-5">
+                    <img src={associationLogos[index]} alt={a.n} className="max-h-20 w-auto max-w-37.5 object-contain" />
+                  </div>
+                  <div className="border-border flex flex-1 flex-col gap-2 border-t bg-surface-1 px-5 py-5 text-center">
+                    <span className="text-brand-strong text-xs font-semibold uppercase tracking-[0.09em]">{a.r}</span>
+                    <span className="text-ink text-[15px] font-semibold leading-snug">{a.n}</span>
+                  </div>
+                </li>
+              ))}
+            </Reveal>
+          </div>
+
           <p className="text-faint max-w-[680px] text-[13.5px] leading-relaxed">{t.partners.approvalNote}</p>
         </div>
-      </Section>
-
-      <Section tone="tint" border="both" decor="ring">
-        <Reveal className="grid grid-cols-1 items-center gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12" step={120}>
-          <div className="border-brand-tint-border card-shadow flex items-center justify-center rounded-[26px] border bg-white px-10 py-14">
-            <img src={implementationLogo} alt={t.partners.impl.n} className="max-h-24 w-auto max-w-[220px] object-contain" />
-          </div>
-          <div className="flex flex-col items-start gap-4">
-            <Eyebrow>{t.partners.implTitle}</Eyebrow>
-            <h2 className="text-ink text-[clamp(1.9rem,3.4vw,2.7rem)] font-bold leading-[1.12] tracking-[-0.03em]">{t.partners.impl.n}</h2>
-            <span className="bg-paper text-brand-strong rounded-full px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.08em]">{t.partners.impl.r}</span>
-            <p className="text-muted max-w-[520px] text-[16.5px] leading-[1.7]">{t.partners.eco[2].d}</p>
-          </div>
-        </Reveal>
       </Section>
 
       <Section tone="surface">
