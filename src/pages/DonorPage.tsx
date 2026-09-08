@@ -15,8 +15,8 @@ export default function DonorPage() {
     <>
       <PageHead title={t.donor.title} />
 
-      <section className="bg-surface-1">
-        <div className="mx-auto max-w-[1280px] px-4 pb-14 pt-10 sm:px-5 sm:pb-24 sm:pt-14">
+      <section className="bg-surface-1 border-border animate-fade-up border-b">
+        <div className="mx-auto max-w-[1280px] px-4 pb-14 pt-10 sm:px-5 sm:pb-20 sm:pt-14">
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-11">
             <div className="flex flex-col gap-7 sm:gap-9">
               <div className="flex flex-col gap-5">

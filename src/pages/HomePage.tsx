@@ -7,6 +7,7 @@ import { Eyebrow } from "../components/ui/Eyebrow";
 import { Button } from "../components/ui/Button";
 import { StepList } from "../components/ui/StepList";
 import { Marquee } from "../components/ui/Marquee";
+import { PartnerCard } from "../components/ui/PartnerCard";
 import { GalleryLightbox } from "../components/ui/GalleryLightbox";
 import { Accordion } from "../components/ui/Accordion";
 import { AnimatedWords } from "../components/ui/AnimatedWords";
@@ -68,10 +69,12 @@ export default function HomePage() {
                 {t.cta.learnProject}
               </Button>
             </div>
-            <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 max-lg:justify-center">
-              <span className="text-faint text-[12.5px] tracking-wide">{t.grant.number}</span>
-              <span aria-hidden="true" className="bg-border-strong h-[4px] w-[4px] rounded-full" />
-              <Button to={paths.partners} variant="text" arrow className="text-[13.5px]">
+            <div className="mt-2 flex flex-wrap items-stretch gap-3 max-lg:justify-center">
+              <span className="border-brand-tint-border bg-brand-tint text-brand-strong inline-flex min-h-12 items-center gap-2 rounded-xl border px-4 py-3 text-[13px] font-semibold tracking-[-0.01em]">
+                <span aria-hidden="true" className="bg-brand h-1.5 w-1.5 rounded-full" />
+                {t.grant.number}
+              </span>
+              <Button to={paths.partners} variant="outline" arrow className="min-h-12 rounded-xl! text-[13.5px]">
                 {t.cta.meetPartners}
               </Button>
             </div>
@@ -88,12 +91,10 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative mx-auto max-w-[1280px] px-4 pb-9 pt-3 sm:px-5 sm:pb-12 sm:pt-5">
-          <Marquee>
+        <div className="relative mx-auto max-w-[1280px] px-4 pb-10 pt-2 sm:px-5 sm:pb-14 sm:pt-4">
+          <Marquee gutterY={26}>
             {partnerNames.map((name, i) => (
-              <div key={name} className="flex h-20 flex-none items-center justify-center px-8">
-                <img src={partnerLogos[i]} alt={name} className="h-14 w-auto max-w-[200px] flex-none object-contain" />
-              </div>
+              <PartnerCard key={name} logo={partnerLogos[i]} name={name} />
             ))}
           </Marquee>
         </div>
@@ -164,9 +165,16 @@ export default function HomePage() {
           <div className="flex flex-col gap-4">
             <Eyebrow>{t.home.grantEyebrow}</Eyebrow>
             <h2 className="text-ink text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.grantTitle}</h2>
-            <div className="card-shadow border-border mt-2 flex max-w-max flex-col gap-1 rounded-[18px] border bg-paper px-5.5 py-5">
-              <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.home.grantNumberLabel}</span>
-              <span className="text-ink text-[26px] font-bold tracking-[-0.02em]">GG2694832</span>
+            <div className="border-brand-tint-border relative mt-2 flex w-full max-w-[360px] flex-col gap-2 overflow-hidden rounded-[22px] border bg-brand-tint px-6 py-6 text-left sm:px-8 sm:py-7">
+              <svg viewBox="0 0 120 120" aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-40 w-40">
+                <g fill="none" stroke="#ea4885" strokeOpacity="0.16">
+                  <circle cx="60" cy="60" r="26" />
+                  <circle cx="60" cy="60" r="40" />
+                  <circle cx="60" cy="60" r="54" />
+                </g>
+              </svg>
+              <span className="relative text-brand-strong text-[11.5px] font-semibold uppercase tracking-[0.1em]">{t.home.grantNumberLabel}</span>
+              <span className="relative text-ink text-[clamp(1.6rem,5vw,2.25rem)] font-bold leading-none tracking-[-0.025em]">GG2694832</span>
             </div>
           </div>
           <div className="flex max-w-[580px] flex-col gap-4.5">
@@ -179,7 +187,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section>
+      <Section containerClassName="pb-0!">
         <div className="mb-7 flex max-w-[640px] flex-col gap-3">
           <Eyebrow>{t.home.partnersEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.partnersTitle}</h2>
@@ -187,25 +195,12 @@ export default function HomePage() {
         </div>
         <Marquee durationSeconds={45} gutterY={26}>
           {partnerNames.map((name, i) => (
-            <div key={name} className="border-border flex w-64 flex-none flex-col overflow-hidden rounded-[20px] border bg-white shadow-[0_10px_30px_-10px_rgba(32,24,89,0.22)]">
-              <div className="flex h-18.5 items-center justify-center px-6">
-                <img src={partnerLogos[i]} alt="" loading="lazy" className="max-h-14 w-auto max-w-50 object-contain" />
-              </div>
-              <span className="text-ink border-border flex min-h-13 flex-1 items-center justify-center border-t bg-surface-1 px-3 py-2.5 text-center text-[12.5px] font-semibold leading-snug">
-                {name}
-              </span>
-            </div>
+            <PartnerCard key={name} logo={partnerLogos[i]} name={name} />
           ))}
         </Marquee>
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-faint max-w-[560px] text-[13px]">{t.partners.approvalNote}</p>
-          <Button to={paths.partners} variant="text" arrow>
-            {t.cta.meetPartners}
-          </Button>
-        </div>
       </Section>
 
-      <Section>
+      <Section overlap={false} containerClassName="py-12! md:py-20!">
         <div className="mb-10 flex max-w-[640px] flex-col gap-3">
           <Eyebrow>{t.home.galleryEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.galleryTitle}</h2>
@@ -228,26 +223,7 @@ export default function HomePage() {
         {lightbox !== null ? <GalleryLightbox images={GALLERY} index={lightbox} onChange={setLightbox} onClose={() => setLightbox(null)} /> : null}
       </Section>
 
-      <Section tone="ink">
-        <div className="mb-11 flex flex-col gap-3">
-          <Eyebrow>{t.home.statsEyebrow}</Eyebrow>
-          <h2 className="text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em] text-paper">{t.home.statsTitle}</h2>
-        </div>
-        <Reveal as="dl" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4" step={80}>
-          {t.home.stats.map((s) => (
-            <div key={s.l} className="flex flex-col gap-2 border-t border-white/20 pt-5">
-              <dt className="order-2 text-[15px] leading-snug text-[#cfc8d9]">{s.l}</dt>
-              <dd className="order-1 m-0 text-[clamp(2.4rem,4.4vw,3.4rem)] font-bold leading-none tracking-[-0.03em] text-paper">{s.v}</dd>
-            </div>
-          ))}
-        </Reveal>
-        <div className="mt-10 flex flex-col gap-2">
-          <p className="text-faint text-[13.5px] font-semibold">{t.home.statsUpdated}</p>
-          <p className="text-faint max-w-[720px] text-[13px] leading-relaxed">{t.home.statsNote}</p>
-        </div>
-      </Section>
-
-      <Section>
+      <Section overlap={false} containerClassName="pt-0!">
         <div className="mb-10 flex flex-col gap-3">
           <Eyebrow>{t.home.involvedEyebrow}</Eyebrow>
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.involvedTitle}</h2>

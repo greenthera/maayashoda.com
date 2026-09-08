@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../i18n/LanguageProvider";
+import { SocialLinks } from "../ui/SocialLinks";
 
 export function Footer() {
   const { t, paths } = useLanguage();
@@ -53,6 +54,7 @@ export function Footer() {
             <span className="text-faint text-[10.5px] font-semibold uppercase tracking-[0.09em]">{t.grant.badge}</span>
             <span className="text-[14.5px] font-semibold">{t.grant.number}</span>
           </div>
+          <SocialLinks size={19} linkClass="text-[#cfc8d9] hover:bg-white/10 hover:text-paper" className="-ml-1.5" />
         </div>
 
         {footerCols.map((col) => (

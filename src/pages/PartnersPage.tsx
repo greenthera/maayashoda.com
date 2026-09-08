@@ -30,7 +30,7 @@ export default function PartnersPage() {
             alt="Rotary International"
             width={280}
             height={280}
-            className="mx-auto h-auto w-[clamp(150px,42vw,280px)] shrink-0 opacity-25 lg:mx-0 lg:justify-self-end"
+            className="mx-auto h-auto w-[clamp(150px,42vw,280px)] shrink-0 opacity-100 lg:mx-0 lg:justify-self-end"
           />
         </div>
       </section>
@@ -100,17 +100,6 @@ export default function PartnersPage() {
               ))}
             </Reveal>
           </div>
-
-          <div className="flex flex-col gap-4">
-            <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.partners.reservedLabel}</span>
-            <Reveal as="ul" className="flex flex-wrap gap-2.5" step={45}>
-              {t.partners.reserved.map((r) => (
-                <li key={r} className="text-faint rounded-full border border-dashed border-border-strong px-4.5 py-2.5 text-sm font-medium">
-                  {r}
-                </li>
-              ))}
-            </Reveal>
-          </div>
         </div>
       </Section>
 
@@ -136,7 +125,7 @@ export default function PartnersPage() {
           </Reveal>
 
           <div className="flex flex-col gap-5">
-            <h3 className="text-ink text-[clamp(1.35rem,2.4vw,1.8rem)] font-bold leading-[1.2] tracking-[-0.02em]">{t.partners.assocTitle}</h3>
+            <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.partners.assocTitle}</h2>
             <Reveal as="ul" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {t.partners.assoc.map((a, index) => (
                 <li key={a.n} className="card-shadow border-border flex flex-col overflow-hidden rounded-2xl border bg-white hover:-translate-y-1">
@@ -151,8 +140,6 @@ export default function PartnersPage() {
               ))}
             </Reveal>
           </div>
-
-          <p className="text-faint max-w-[680px] text-[13.5px] leading-relaxed">{t.partners.approvalNote}</p>
         </div>
       </Section>
 

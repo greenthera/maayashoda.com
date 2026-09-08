@@ -86,24 +86,22 @@ export default function ContactPage() {
               <p className="text-faint text-[13px] leading-relaxed">{t.contact.optionsNote}</p>
             </div>
 
-            <div className="card-shadow border-border flex flex-col gap-4 rounded-[18px] border bg-paper p-5 sm:rounded-[20px] sm:p-6.5">
-              <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.contact.primaryContactLabel}</span>
-              <div className="flex items-center gap-4">
+            <div className="card-shadow border-border flex flex-col items-start gap-5 rounded-[18px] border bg-paper p-5 min-[400px]:flex-row min-[400px]:items-center sm:rounded-[20px] sm:p-6.5">
                 <img
                   src={`${import.meta.env.BASE_URL}images/team/prashant-kariya.webp`}
                   alt={t.contact.primaryContactName}
-                  width={72}
-                  height={72}
-                  className="border-border h-18 w-18 flex-none rounded-full border object-cover"
+                  width={128}
+                  height={160}
+                  className="border-border h-35 w-28 flex-none rounded-2xl border object-cover sm:h-40 sm:w-32"
                 />
-                <div className="flex flex-col gap-1">
+                <div className="flex min-w-0 flex-col gap-2">
+                  <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.contact.primaryContactLabel}</span>
                   <span className="text-ink text-[19px] font-bold tracking-[-0.02em]">{t.contact.primaryContactName}</span>
                   <a href={`mailto:${t.contact.primaryContactEmail}`} className="text-brand hover:text-brand-hover text-[14px] font-semibold break-all">
                     {t.contact.primaryContactEmail}
                   </a>
+                  <span className="text-faint text-[13.5px] leading-relaxed">{t.contact.primaryContactNote}</span>
                 </div>
-              </div>
-              <span className="text-faint text-[13.5px] leading-relaxed">{t.contact.primaryContactNote}</span>
             </div>
 
             <div className="card-shadow bg-surface-2 flex flex-col gap-4 rounded-[18px] p-5 sm:rounded-[20px] sm:p-6.5">

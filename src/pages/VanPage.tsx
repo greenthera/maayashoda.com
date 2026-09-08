@@ -108,14 +108,6 @@ export default function VanPage() {
         </div>
       </Section>
 
-      <Section tone="tint" border="top">
-        <div className="flex max-w-[640px] flex-col gap-3.5">
-          <Eyebrow>{t.van.futureEyebrow}</Eyebrow>
-          <h2 className="text-ink text-[clamp(1.5rem,2.6vw,2rem)] font-bold leading-[1.16] tracking-[-0.025em]">{t.van.futureTitle}</h2>
-          <p className="text-muted text-base leading-[1.7]">{t.van.futureBody}</p>
-        </div>
-      </Section>
-
       <Section tone="ink">
         <div className="flex flex-col items-center gap-5 text-center">
           <h2 className="max-w-[600px] text-[clamp(1.8rem,3.4vw,2.7rem)] font-bold leading-[1.12] tracking-[-0.03em] text-paper">{t.van.finalTitle}</h2>

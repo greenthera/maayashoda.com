@@ -114,9 +114,16 @@ export default function AboutPage() {
           <div className="flex flex-col gap-3.5">
             <Eyebrow>{t.about.grantEyebrow}</Eyebrow>
             <h2 className="text-ink text-[clamp(1.6rem,2.8vw,2.2rem)] font-bold leading-[1.16] tracking-[-0.03em]">{t.about.grantTitle}</h2>
-            <div className="card-shadow mt-1.5 flex max-w-max flex-col gap-1 rounded-2xl bg-paper px-5 py-4.5">
-              <span className="text-faint text-[11.5px] font-semibold uppercase tracking-[0.09em]">{t.grant.badge}</span>
-              <span className="text-ink text-2xl font-bold tracking-[-0.02em]">GG2694832</span>
+            <div className="border-brand-tint-border relative mt-2 flex w-full max-w-[360px] flex-col gap-2 overflow-hidden rounded-[22px] border bg-brand-tint px-6 py-6 text-left sm:px-8 sm:py-7">
+              <svg viewBox="0 0 120 120" aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-40 w-40">
+                <g fill="none" stroke="#ea4885" strokeOpacity="0.16">
+                  <circle cx="60" cy="60" r="26" />
+                  <circle cx="60" cy="60" r="40" />
+                  <circle cx="60" cy="60" r="54" />
+                </g>
+              </svg>
+              <span className="relative text-brand-strong text-[11.5px] font-semibold uppercase tracking-[0.1em]">{t.grant.badge}</span>
+              <span className="relative text-ink text-[clamp(1.6rem,5vw,2.25rem)] font-bold leading-none tracking-[-0.025em]">GG2694832</span>
             </div>
           </div>
           <div className="flex flex-col gap-3.5">

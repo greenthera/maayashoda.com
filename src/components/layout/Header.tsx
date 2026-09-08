@@ -17,7 +17,6 @@ function Logo() {
 export function Header() {
   const { t, lang, setLang, langOptions, paths } = useLanguage();
   const location = useLocation();
-  const isDonorPage = location.pathname === paths.donor;
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -36,24 +35,22 @@ export function Header() {
     return () => document.removeEventListener("click", onDocClick);
   }, [langOpen]);
 
-  const navItems = isDonorPage
-    ? [
-        { to: paths.about, label: t.nav.about },
-        { to: paths.faqs, label: t.nav.faqs },
-        { to: paths.contact, label: t.cta.needHelp },
-      ]
-    : [
-        { to: paths.about, label: t.nav.about },
-        { to: paths.van, label: t.nav.van },
-        { to: paths.partners, label: t.nav.partners },
-        { to: paths.support, label: t.nav.support },
-        { to: paths.faqs, label: t.nav.faqs },
-      ];
+  const navItems = [
+    { to: paths.about, label: t.nav.about },
+    { to: paths.van, label: t.nav.van },
+    { to: paths.partners, label: t.nav.partners },
+    { to: paths.support, label: t.nav.support },
+    { to: paths.faqs, label: t.nav.faqs },
+  ];
 
-  const mobileNavItems = [{ to: paths.home, label: t.nav.home }, ...navItems, { to: paths.contact, label: t.nav.contact }];
+  const mobileNavItems = [
+    { to: paths.home, label: t.nav.home },
+    ...navItems,
+    { to: paths.contact, label: t.cta.needHelp },
+  ];
 
   const linkClass = (isActive: boolean) =>
-    `rounded-lg px-3.5 py-2 text-[14.5px] font-medium whitespace-nowrap ${isActive ? "text-brand" : "text-ink hover:text-brand"}`;
+    `rounded-lg px-3 py-2 text-[14px] font-medium whitespace-nowrap ${isActive ? "text-brand" : "text-ink hover:text-brand"}`;
 
   function closeMobileMenu() {
     setMenuOpen(false);
@@ -63,17 +60,17 @@ export function Header() {
   return (
     <header className="bg-paper/92 border-border sticky top-0 z-50 border-b backdrop-blur-md">
       <div className="mx-auto flex h-[64px] max-w-[1280px] items-center gap-2.5 px-4 sm:h-[72px] sm:gap-5 sm:px-5">
-        <Link to={paths.home} aria-label="Maa Yashoda home" className="text-ink flex min-w-0 flex-1 items-center gap-2.5 lg:flex-none">
+        <Link to={paths.home} aria-label="Maa Yashoda home" className="text-ink flex min-w-0 flex-1 items-center gap-2.5 min-[1140px]:flex-none">
           <Logo />
           <span className="flex min-w-0 flex-col leading-[1.15]">
             <span className="truncate text-[16px] font-bold sm:text-[17px]">Maa Yashoda</span>
-            <span className="text-faint hidden truncate text-[10.5px] font-semibold uppercase tracking-[0.09em] min-[380px]:block">
-              Human Milk Bank Initiative
+            <span className="text-faint hidden truncate text-[10.5px] font-semibold uppercase tracking-[0.09em] min-[380px]:block min-[1140px]:hidden 2xl:block">
+              Human Milk Bank on Wheels Initiative
             </span>
           </span>
         </Link>
 
-        <nav aria-label="Main" className="ml-auto hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main" className="ml-auto hidden items-center gap-0.5 min-[1140px]:flex">
           {navItems.map((item) => (
             <NavLink key={item.to} to={item.to} className={({ isActive }) => linkClass(isActive)}>
               {item.label}
@@ -81,7 +78,23 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex flex-none items-center gap-2 lg:ml-0 sm:gap-2.5">
+        <div className="ml-auto flex flex-none items-center gap-2 min-[1140px]:ml-0 sm:gap-2.5">
+          <NavLink
+            to={paths.contact}
+            className={({ isActive }) =>
+              `hidden h-10 items-center gap-1.5 rounded-[10px] px-2.5 text-[13.5px] font-medium min-[1140px]:inline-flex ${
+                isActive ? "text-brand" : "text-ink hover:text-brand"
+              }`
+            }
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4" />
+              <path d="M12 17h.01" />
+            </svg>
+            {t.cta.needHelp}
+          </NavLink>
+
           <div className="relative" ref={langRef}>
             <button
               type="button"
@@ -121,21 +134,19 @@ export function Header() {
             ) : null}
           </div>
 
-          {!isDonorPage ? (
-            <Link
-              to={paths.donor}
-              className="bg-brand text-paper hover:bg-brand-hover hidden h-11 items-center whitespace-nowrap rounded-xl px-4.5 text-[14.5px] font-semibold sm:inline-flex"
-            >
-              {t.cta.donor}
-            </Link>
-          ) : null}
+          <Link
+            to={paths.donor}
+            className="bg-brand text-paper hover:bg-brand-hover hidden h-11 items-center whitespace-nowrap rounded-xl px-4.5 text-[14.5px] font-semibold sm:inline-flex"
+          >
+            {t.cta.donor}
+          </Link>
 
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={t.nav.menu}
             aria-expanded={menuOpen}
-            className="border-border grid h-[42px] w-[42px] place-items-center rounded-[11px] border bg-paper lg:hidden"
+            className="border-border grid h-[42px] w-[42px] place-items-center rounded-[11px] border bg-paper min-[1140px]:hidden"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#201859" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
               <path d="M4 7h16M4 12h16M4 17h16" />
@@ -145,7 +156,7 @@ export function Header() {
       </div>
 
       {menuOpen ? (
-        <nav aria-label="Mobile" className="border-border flex max-h-[calc(100dvh-64px)] flex-col gap-0.5 overflow-y-auto border-t bg-paper px-4 pb-5 pt-3 sm:px-5 lg:hidden">
+        <nav aria-label="Mobile" className="border-border flex max-h-[calc(100dvh-64px)] flex-col gap-0.5 overflow-y-auto border-t bg-paper px-4 pb-5 pt-3 sm:px-5 min-[1140px]:hidden">
           {mobileNavItems.map((item) => (
             <NavLink
               key={item.to}
