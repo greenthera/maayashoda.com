@@ -20,7 +20,6 @@
   --color-surface-2: #f2f0f8;
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 0.7, 0.2, 1) both;
-  --animate-marquee: marquee 40s linear infinite;
   --animate-pulse-ring: pulse-ring 7s ease-out infinite;
 
   @keyframes fade-up {
@@ -31,14 +30,6 @@
     to {
       opacity: 1;
       transform: none;
-    }
-  }
-  @keyframes marquee {
-    from {
-      transform: translate3d(0, 0, 0);
-    }
-    to {
-      transform: translate3d(-50%, 0, 0);
     }
   }
   @keyframes pulse-ring {
@@ -119,30 +110,6 @@ span {
     0 10px 26px rgb(32 24 89 / 0.06);
 }
 
-/* Infinite logo scroller (see Marquee). Runs on a promoted GPU layer so iOS
-   Safari keeps it smooth, and only pauses on real pointer devices — a :hover
-   that sticks after a tap on touch screens must not freeze the animation. */
-.marquee-mask {
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-.marquee-track {
-  animation: marquee 40s linear infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-@media (hover: hover) and (pointer: fine) {
-  .marquee-track:hover {
-    animation-play-state: paused;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    transform: none;
-  }
-}
 
 /* Idle bob for the Human Milk Bank Van on the homepage (see VanScene). */
 @keyframes van-bob {

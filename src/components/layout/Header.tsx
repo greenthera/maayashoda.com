@@ -64,7 +64,7 @@ export function Header() {
           <Logo />
           <span className="flex min-w-0 flex-col leading-[1.15]">
             <span className="truncate text-[16px] font-bold sm:text-[17px]">Maa Yashoda</span>
-            <span className="text-faint hidden truncate text-[10.5px] font-semibold uppercase tracking-[0.09em] min-[380px]:block min-[1140px]:hidden 2xl:block">
+            <span className="text-faint hidden truncate text-[10.5px] font-semibold uppercase tracking-[0.09em] min-[380px]:block min-[1140px]:hidden">
               Human Milk Bank on Wheels Initiative
             </span>
           </span>
