@@ -91,10 +91,12 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative mx-auto max-w-[1280px] px-4 pb-10 pt-2 sm:px-5 sm:pb-14 sm:pt-4">
-          <Marquee gutterY={26}>
+        <div className="relative pb-8 pt-1 sm:pb-12 sm:pt-3">
+          <Marquee>
             {partnerNames.map((name, i) => (
-              <PartnerCard key={name} logo={partnerLogos[i]} name={name} />
+              <div key={name} className="mx-2 my-4">
+                <PartnerCard logo={partnerLogos[i]} name={name} />
+              </div>
             ))}
           </Marquee>
         </div>
@@ -193,9 +195,11 @@ export default function HomePage() {
           <h2 className="text-ink text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold leading-[1.14] tracking-[-0.03em]">{t.home.partnersTitle}</h2>
           <p className="text-muted text-[17px] leading-[1.7]">{t.home.partnersLead}</p>
         </div>
-        <Marquee durationSeconds={45} gutterY={26}>
+        <Marquee speed={48}>
           {partnerNames.map((name, i) => (
-            <PartnerCard key={name} logo={partnerLogos[i]} name={name} />
+            <div key={name} className="mx-2 my-4">
+              <PartnerCard logo={partnerLogos[i]} name={name} />
+            </div>
           ))}
         </Marquee>
       </Section>
