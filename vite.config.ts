@@ -8,9 +8,6 @@ export default defineConfig({
   // (used as the react-router basename in src/main.tsx) picks this up too.
   base: "/maayashoda.com/",
   plugins: [react(), tailwindcss()],
-  // react-fast-marquee ships CJS; let Vite bundle it for the SSR build so the
-  // default export resolves and it prerenders cleanly.
-  ssr: { noExternal: ["react-fast-marquee"] },
   ssgOptions: {
     includedRoutes(paths) {
       return paths.filter((p) => !p.includes("*"));
