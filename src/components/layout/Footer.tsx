@@ -90,7 +90,12 @@ export function Footer() {
           <p className="text-faint max-w-[720px] text-[12.5px] leading-relaxed">{t.footer.note}</p>
           <p className="text-faint flex-none text-[12.5px]">
             Developed by{" "}
-            <a href="https://shivantra.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand font-medium text-[#cfc8d9]">
+            <a
+              href="https://shivantra.com/?utm_source=maayashoda.com&utm_medium=referral&utm_campaign=client_footer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand font-medium text-[#cfc8d9]"
+            >
               Shivantra
             </a>
           </p>
