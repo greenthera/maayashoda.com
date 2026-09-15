@@ -11,8 +11,6 @@ import { ringStyle } from "../lib/decor";
 export default function FaqsPage() {
   const { t, paths } = useLanguage();
   const groups = t.faqs.groups.map((g, i) => ({ ...g, id: `faq-${i + 1}` }));
-  console.log("groups",groups);
-  
 
   const [query, setQuery] = useState("");
   const normalizedQuery = query.trim().toLowerCase();
