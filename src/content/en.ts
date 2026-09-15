@@ -383,6 +383,12 @@ const en = {
     h1: "Frequently Asked Questions",
     lead: "Answers to the questions we are asked most often. Clinical and operational answers are reviewed by the appropriate teams before publication; where an answer awaits approval, that is stated plainly.",
     jump: "Jump to a category",
+    searchPlaceholder: "Search frequently asked questions",
+    searchClear: "Clear search",
+    searchResultsOne: "1 result",
+    searchResultsMany: "{count} results",
+    searchNoResultsTitle: "No matching questions",
+    searchNoResultsBody: "Try a different word, or clear the search to browse all categories.",
     groups: [
       {
         c: "About Maa Yashoda",
