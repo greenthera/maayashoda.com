@@ -2,6 +2,8 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { CheckboxField, RadioGroupField, SelectField, TextField, TextareaField } from "./fields";
+import { submitDonorInterestToGoogleForm } from "./donorGoogleForm";
+import { submitContactEnquiryToGoogleForm } from "./contactGoogleForm";
 
 export type FormVariant = "donor" | "support" | "contact";
 
@@ -197,6 +199,33 @@ export function EnquiryForm({ variant }: { variant: FormVariant }) {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0 || honeypot) return;
 
+    if (variant === "donor") {
+      const f = t.form;
+      submitDonorInterestToGoogleForm({
+        fullName: String(values.fullName ?? "").trim(),
+        mobile: String(values.mobile ?? "").trim(),
+        email: String(values.email ?? "").trim(),
+        city: String(values.city ?? "").trim(),
+        state: String(values.state ?? "").trim(),
+        interestIndex: f.interestOptions.indexOf(String(values.interest ?? "")),
+        contactMethodIndex: [f.phone, f.whatsapp, f.email].indexOf(String(values.contactMethod ?? "")),
+        message: String(values.message ?? "").trim(),
+      });
+    }
+
+    if (variant === "contact") {
+      const f = t.form;
+      submitContactEnquiryToGoogleForm({
+        fullName: String(values.fullName ?? "").trim(),
+        mobile: String(values.mobile ?? "").trim(),
+        email: String(values.email ?? "").trim(),
+        org: String(values.org ?? "").trim(),
+        category: String(values.category ?? "").trim(),
+        message: String(values.message ?? "").trim(),
+        contactMethodIndex: [f.phone, f.whatsapp, f.email].indexOf(String(values.contactMethod ?? "")),
+      });
+    }
+
     navigate(thanksPath[variant]);
   }
 
@@ -304,11 +333,11 @@ export function EnquiryForm({ variant }: { variant: FormVariant }) {
       <div className="flex flex-col gap-3">
         <button
           type="submit"
-          className="bg-brand text-paper hover:bg-brand-hover flex min-h-[54px] w-full items-center justify-center rounded-xl px-6 text-base font-semibold"
+          className="bg-brand text-paper hover:bg-brand-hover flex min-h-[54px] w-full cursor-pointer items-center justify-center rounded-xl px-6 text-base font-semibold"
         >
           {submitLabel}
         </button>
-        <p className="text-faint text-[12.5px] leading-snug">{t.form.demoNote}</p>
+        {variant === "support" ? <p className="text-faint text-[12.5px] leading-snug">{t.form.demoNote}</p> : null}
       </div>
     </form>
   );
